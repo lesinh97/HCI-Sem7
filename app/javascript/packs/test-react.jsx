@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-
 /*
 class InputText extends React.Component {
   constructor(props) {
@@ -91,28 +90,38 @@ class InputText extends React.Component {
     );
   }
 }
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<InputText/>, document.getElementById('state'))
-});
 */
 
-var InterfaceComponent = React.createClass({
-getInitialState : function() {
-return {
-name : "doel"
-};
-},
-handleClick : function() {
-this.setState({
-name : "doel sengupta"
-});
-},
-render : function() {
-return <div onClick={this.handleClick}>
-hello {this.state.name}, your name is successfully updated!
-</div>;
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      term = '',
+      is_change: false
+    };
+    this.listItems = []
+  }
+  componentDidMount() {
+
+  }
+  static getDerivedStateFromProps(nextProps, value) {
+
+  }
+
+  onChange = (event) => {
+    event.preventDefault();
+    this.setState({term: event.targer.value});
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault():
+    this.setState({ items: [...this.state.items, {name: this.state.term}] });
+  }
+
+  render() {
+    const listItems = this.state.items.map(item, index) => <List key>
+  }
 }
-});
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(InterfaceComponent, document.getElementById('state'))
+  ReactDOM.render(<InputText/>, document.getElementById('state'))
 });

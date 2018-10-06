@@ -1,0 +1,17 @@
+#hidden #container #hidden-row #hidden-column #hidden-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#hidden #container #hidden-row #hidden-column #hidden-box #hidden-form {
+  padding: 20px;
+}
+#hidden #container #hidden-row #hidden-column #hidden-box #hidden-form #register-link {
+  margin-top: -85px;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
