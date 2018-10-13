@@ -64,4 +64,3 @@ class App extends Component {
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<App/>, document.getElementById('state'))
 });
-
