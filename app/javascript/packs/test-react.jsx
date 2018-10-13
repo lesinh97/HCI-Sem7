@@ -1,8 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
-
-/*
 class InputText extends React.Component {
   constructor(props) {
     super(props);
@@ -90,38 +87,7 @@ class InputText extends React.Component {
     );
   }
 }
-*/
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      term = '',
-      is_change: false
-    };
-    this.listItems = []
-  }
-  componentDidMount() {
-
-  }
-  static getDerivedStateFromProps(nextProps, value) {
-
-  }
-
-  onChange = (event) => {
-    event.preventDefault();
-    this.setState({term: event.targer.value});
-  }
-
-  onSubmit = (event) => {
-    event.preventDefault():
-    this.setState({ items: [...this.state.items, {name: this.state.term}] });
-  }
-
-  render() {
-    const listItems = this.state.items.map(item, index) => <List key>
-  }
-}
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<InputText/>, document.getElementById('state'))
 });

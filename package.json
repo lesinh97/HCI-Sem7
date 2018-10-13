@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
@@ -10,6 +11,7 @@
     "react_ujs": "^2.4.4"
   },
   "devDependencies": {
+    "react-edit-inline": "^1.0.8",
     "webpack-dev-server": "2.11.2"
   }
 }
