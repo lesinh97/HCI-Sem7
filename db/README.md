@@ -7,6 +7,18 @@
 |password|  |   |
 |level| text    |   |
 
+# User role 
+| Att | Type | PK |
+|-----|------|----|
+|
+
+# Role 
+| Att | Type | PK |
+|-----|------|----|
+|role_id| autoIn | 1|
+|role_name| |string| |
+
+
 # Teacher
 | Att | Type | PK |
 |-----|------|----|
