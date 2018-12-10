@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+}
+
+.todo-wrapper {
+  margin: 20px auto 20px auto;
+  width: 500px;
+  min-height: 600px;
+  border: 2px solid rgba(9, 93, 218);
+  padding: 20px;
+}
+
+.todoWrapper {
+  border-bottom: 1px solid #efefef;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.removeTodo {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px;
+}
+
+
+.btn {
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px;
+}
+
+.btn-primary {
+  color: rgba(236, 239, 241, 1.0);
+  background-color: #0c4fe6;
+}
+
+input {
+  width: 60%;
+  border-top: 2px solid rgba(9, 93, 218);
+  border-bottom: 2px solid rgba(9, 93, 218);
+  border-right: 2px solid rgba(9, 93, 218);
+  border-left: 2px solid rgba(9, 93, 218);
+  margin-right: 10px;
+  padding: 5px;
+  line-height: 17px;
+}
+
+input:focus {
+  outline: none;
+  border-top: 2px solid rgba(73, 204, 249, 1.0);
+  border-bottom: 2px solid rgba(73, 204, 249, 1.0);
+  border-left: 2px solid rgba(73, 204, 249, 1.0);
+  border-right: 2px solid rgba(73, 204, 249, 1.0);
+}
+
+

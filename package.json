@@ -2,24 +2,18 @@
   "name": "english-academy",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.6.1",
-    "@material-ui/icons": "^3.0.1",
     "@rails/webpacker": "3.5",
     "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.1.3",
-    "chartist": "^0.11.0",
-    "perfect-scrollbar": "^1.4.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
-    "react-chartist": "^0.13.1",
     "react-dom": "^16.5.2",
-    "react-google-maps": "^9.4.5",
     "react-router-dom": "^4.3.1",
     "react_ujs": "^2.4.4"
   },
   "devDependencies": {
     "react-edit-inline": "^1.0.8",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "2.11.2"
   }
 }
