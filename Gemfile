@@ -15,7 +15,7 @@ gem "jbuilder", "~> 2.5"
 gem "bcrypt", "~> 3.1.7"
 gem "loofah", ">= 2.2.3"
 gem "bootsnap", ">= 1.1.0", require: false
-
+gem "mysql2"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
