@@ -3,15 +3,16 @@ import React from "react";
 class Single_course extends React.Component {
   constructor(props) {
     super(props);
+
   }
   render() {
     return (
-      <div className={props.style}>
+      <div className={this.props.arr_style}>
         <div className="single_department">
           <div className="dpmt_icon">
-            <img src={props.icon} alt />
+            <img src={this.props.icon} alt />
           </div>
-          <h4>Languages</h4>
+          <h4>{this.props.course_name}</h4>
         </div>
       </div>
     );

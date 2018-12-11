@@ -10,8 +10,8 @@ class Banner_inner extends React.Component {
             <div className="col-lg-6">
               <div className="banner_content">
                 <h2>
-                  Foo <br />
-                  raB
+                  Full eco <br />
+                  Rush Mid
                 </h2>
                 <p>
                   In the history of modern astronomy, there is probably no one
