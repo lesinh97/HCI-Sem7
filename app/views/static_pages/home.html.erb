@@ -1,5 +1,24 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<%= stylesheet_link_tag "homepage/css/bootstrap" %>
+<%= stylesheet_link_tag "homepage/css/font-awesome.min" %>
+<%= stylesheet_link_tag "homepage/css/style" %>
+<%= stylesheet_link_tag "homepage/vendors/owl-carousel/owl.carousel.min" %>
+<%= stylesheet_link_tag "homepage/vendors/lightbox/simpleLightbox" %>
+<%= stylesheet_link_tag "homepage/vendors/nice-select/css/nice-select" %>
+
 <body>
-  <div id = "state"></div>
+  <div id = "header"></div>
+  <div id = "banner"></div>
+  <div id = "feature"></div>
+  <div id = "department"></div>
+  <div id = "popular_courses"></div>
+  <div id = "fact_area"></div>
+
 </body>
+<%= javascript_pack_tag "header" %>
+<%= javascript_pack_tag "banner" %>
+<%= javascript_pack_tag "feature" %>
+<%= javascript_pack_tag "department" %>
+<%= javascript_pack_tag "popular_courses" %>
+<%= javascript_pack_tag "fact_area" %>
+
+
