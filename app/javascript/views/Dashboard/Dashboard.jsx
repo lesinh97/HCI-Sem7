@@ -112,7 +112,7 @@ class Dashboard extends Component{
                                             <ComposableMap style={{ width: "100%", height: "300px" }}>
                                                 <ZoomableGroup>
                                                     <Geographies geographyUrl="https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-50m.json">
-                                                    {(geographies, projection) => geographies.map(geography => {
+                                                    {(geographies, projection) => geographies.map((geography, index) => {
                                                         var style;
                                                         switch (geography.id) {
                                                             case "BRA":
@@ -139,7 +139,7 @@ class Dashboard extends Component{
                                                         }
                                                         return (
                                                             <Geography
-                                                                key={ geography.id }
+                                                                key={ index }
                                                                 geography={ geography }
                                                                 projection={ projection }
                                                                 onClick={ this.handleClick }
