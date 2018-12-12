@@ -22,23 +22,24 @@ class App extends Component{
     }
 
     switchRoutes = () => {
+        const isLogin = this.props.isAuthenticated;
         let route = (
             <Switch>
                 <Route path="/homepage" component={Homepage} />
                 <Route path="/pages/login-page" exact component={Pages} />
                 <Route path="/pages/register-page" exact component={Pages} />
                 <Route path="/pages/lock-screen-page" exact component={Pages} />
-                {/* <Redirect to="/" /> */}
+                {/* { (this.props.location.pathname.indexOf("admin") === -1 || !isLogin) ? <Redirect to="/homepage" /> : null } */}
             </Switch>
         )
-        const isLogin = this.props.isAuthenticated;
         if(isLogin) {
             console.log("logined");
             return (
                 <Switch>
-                    {/* {(this.props.location.pathname.indexOf("/pages/") !== -1) ? <Redirect to="/homepage" /> : null} */}
                     <Route path="/homepage" component={Homepage} />
-                    <Route path="/" component={Dash} />
+                    <Route path="/admin" component={Dash} />
+                    {/* {(this.props.location.pathname.indexOf("/pages/") !== -1) ? <Redirect to="/homepage" /> : null} */}
+                    <Redirect from="/" to="/homepage" />
                 </Switch>
             )
         }
