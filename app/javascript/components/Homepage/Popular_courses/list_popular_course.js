@@ -19,8 +19,8 @@ class List_popular_course extends React.Component {
       <div className="row">
         {}
         {
-          this.state.name.map(item => (
-            <Popular_single_course name= {item} avatar = {teacher_boom} />
+          this.state.name.map((item,index) => (
+            <Popular_single_course name= {item} avatar = {teacher_boom} key={index}/>
           ))
           }     
         {}

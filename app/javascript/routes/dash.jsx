@@ -56,6 +56,6 @@ var dashRoutes = [
     { collapse: true, path: "/pages", name: "Pages", state: "openPages", icon:"pe-7s-gift", views:
         pages
     },
-    { redirect: true, path: "/", pathTo: "/dashboard", name: "Dashboard" }
+    // { redirect: true, path: "/", pathTo: "/dashboard", name: "Dashboard" }
 ];
 export default dashRoutes;

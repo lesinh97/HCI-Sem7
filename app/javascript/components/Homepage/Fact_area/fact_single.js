@@ -6,7 +6,7 @@ class Fact_single extends React.Component {
       <div className="col-lg-4 col-md-6">
         <div className="single_fact">
           <div className="f_icon">
-            <img src="img/f-icons/icon1.png" alt />
+            <img src="img/f-icons/icon1.png" />
           </div>
           <h4>Expert Mentors</h4>
           <p>

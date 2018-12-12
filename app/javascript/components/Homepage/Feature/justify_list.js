@@ -18,8 +18,8 @@ class Justify_list extends React.Component {
       <div className="row justify-content-end">
         <div className="col-lg-4">
         {
-          this.state.style.map(item => (
-            <Justify_content style= {item} />
+          this.state.style.map((item, index) => (
+            <Justify_content style= {item} key={index}/>
           ))
         }          
           {}

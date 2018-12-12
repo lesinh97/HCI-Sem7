@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {
     Switch,
     Route,
-    Redirect
+    Redirect,
+    withRouter
 } from 'react-router-dom';
 
 // dinamically create app routes
@@ -10,61 +11,43 @@ import appRoutes from 'routes/app.jsx';
 
 import { connect } from 'react-redux';
 import * as actions from '../../reduxStore/actions/actionsIndex.js';
+import Pages from 'containers/Pages/Pages.jsx';
+import Dash from 'containers/Dash/Dash.jsx';
+import Homepage from '../../components/Homepage/Homepage';
 
 class App extends Component{
-    componentDidUpdate(e){
-        if(window.innerWidth < 993 && e.history.action === "PUSH" && document.documentElement.className.indexOf('nav-open') !== -1){
-            document.documentElement.classList.toggle('nav-open');
-        }
-    }
-
-    componentDidMount() {
+    constructor(props) {
+        super(props);
         this.props.checkSignIn();
     }
-    
-    render(){
-        //code super xau
-        let switchRoutes = null;
+
+    switchRoutes = () => {
+        let route = (
+            <Switch>
+                <Route path="/homepage" component={Homepage} />
+                <Route path="/pages/login-page" exact component={Pages} />
+                <Route path="/pages/register-page" exact component={Pages} />
+                <Route path="/pages/lock-screen-page" exact component={Pages} />
+                {/* <Redirect to="/" /> */}
+            </Switch>
+        )
         const isLogin = this.props.isAuthenticated;
         if(isLogin) {
-            switchRoutes = (
+            console.log("logined");
+            return (
                 <Switch>
-                    {
-                        appRoutes.map((prop,key) => {
-                            if(prop.path === "/") {
-                                return (
-                                    <Route path={prop.path} component={prop.component} key={key} />
-                                );
-                            } else if(prop.path === "/pages/" && this.props.location.pathname.indexOf("/pages/") !== -1) {
-                                return (
-                                    <Redirect to="/" key={key} />
-                                )
-                            }
-                            return null;
-                        })
-                    }
-                </Switch>
-            )
-        } else {
-            switchRoutes = (
-                <Switch>
-                    {
-                        appRoutes.map((prop,key) => {
-                            if(prop.name === "Pages") {
-                                return (
-                                    <Route path={prop.path} component={prop.component} key={key} />
-                                );
-                            } 
-                            return null;
-                        })
-                    }
-                    {
-                        <Redirect to="/pages/login-page" />
-                    }
+                    {/* {(this.props.location.pathname.indexOf("/pages/") !== -1) ? <Redirect to="/homepage" /> : null} */}
+                    <Route path="/homepage" component={Homepage} />
+                    <Route path="/" component={Dash} />
                 </Switch>
             )
         }
-        return switchRoutes;
+        return route;
+    }
+
+    render(){
+        console.log("rendered");
+        return this.switchRoutes();
     }
 }
 

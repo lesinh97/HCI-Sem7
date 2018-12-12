@@ -7,7 +7,7 @@ class header_main_nav extends React.Component {
         <div className="container">
           {}
           <a className="navbar-brand logo_h" href="index.html">
-            <img src={logo} alt width={"100"} height={"60"} />
+            <img src={logo} width={"100"} height={"60"} />
           </a>
           <button
             className="navbar-toggler"
