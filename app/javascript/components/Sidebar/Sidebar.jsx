@@ -36,32 +36,6 @@ class Sidebar extends Component{
     activeRoute(routeName) {
         return this.props.location.pathname.indexOf(routeName) > -1 ? 'active' : '';
     }
-    // if the windows width changes CSS has to make some changes
-    // this functions tell react what width is the window
-    updateDimensions(){
-        this.setState({width:window.innerWidth});
-    }
-    componentDidMount() {
-        this.updateDimensions();
-        // add event listener for windows resize
-        window.addEventListener("resize", this.updateDimensions.bind(this));
-        if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-            Ps.initialize(this.refs.sidebarWrapper, { wheelSpeed: 2, suppressScrollX: true });
-        }
-    }
-    componentDidUpdate(){
-        if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-            setTimeout(() => { Ps.update(this.refs.sidebarWrapper) }, 350);
-        }
-    }
-    // function that creates perfect scroll bar for windows users (it creates a scrollbar that looks like the one from apple devices)
-    isMac(){
-        let bool = false;
-        if (navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.platform.toUpperCase().indexOf('IPAD') >= 0) {
-            bool = true;
-        }
-        return bool;
-    }
     render(){
         return (
 
