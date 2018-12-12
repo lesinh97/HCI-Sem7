@@ -6,12 +6,12 @@ import Department from './Department/Department';
 import PopularCourses from './Popular_courses/PopularCourses';
 import FactArea from './Fact_area/FactArea';
 
-// import '../../assets/css/homepage/css/bootstrap.css';
-// import '../../assets/css/homepage/css/font-awesome.min.css';
-// import '../../assets/css/homepage/css/style.css';
-// import '../../assets/css/homepage/lightbox/simpleLightbox.css';
-// import '../../assets/css/homepage/nice-select/css/nice-select.css';
-// import '../../assets/css/homepage/owl-carousel/owl.crousel.min.css';
+// import '../../../assets/stylesheets/homepage/css/bootstrap.css';
+// import '../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
+// import '../../../assets/stylesheets/homepage/css/style.css';
+// import '../../../assets/stylesheets/homepage/vendors/lightbox/simpleLightbox.css';
+// import '../../../assets/stylesheets/homepage/vendors/nice-select/css/nice-select.css';
+ //import '../../../assets/stylesheets/homepage/vendors/owl-carousel/owl.crousel.min.css';
 
 class Homepage extends Component {
 
