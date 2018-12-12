@@ -1,9 +1,6 @@
 import React from "react";
-import ReactDOM from 'react-dom';
-import Courses from "../components/Homepage/Department/courses";
-import Course_description from "../components/Homepage/Department/course_description";
-import registerServiceWorker from '../registerServiceWorker';
-
+import Courses from "./courses";
+import Course_description from "./course_description";
 
 class Department extends React.Component {
   render() {
@@ -23,6 +20,3 @@ class Department extends React.Component {
 }
 
 export default Department;
-
-ReactDOM.render(<Department />, document.getElementById('department'));
-registerServiceWorker();

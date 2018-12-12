@@ -1,9 +1,6 @@
 import React from "react";
-import ReactDOM from 'react-dom'
-import Banner_inner from "../components/Homepage/Banner/banner_inner";
-import banner_backgound from "../assets/img/homepage/banner.jpg"
-import registerServiceWorker from '../registerServiceWorker';
-
+import Banner_inner from "./banner_inner";
+import banner_backgound from "../../../assets/img/homepage/banner.jpg";
 
 const bannerStyle = {
   backgroundImage: "url(" + banner_backgound + ")",
@@ -19,6 +16,3 @@ const Banner = () => {
 }
 
 export default Banner;
-
-ReactDOM.render(<Banner />, document.getElementById('banner'));
-registerServiceWorker();

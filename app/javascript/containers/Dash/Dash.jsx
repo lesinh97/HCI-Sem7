@@ -4,6 +4,7 @@ import {
     Route,
     Redirect
 } from 'react-router-dom';
+import { connect } from 'react-redux';
 // this is used to create scrollbars on windows devices like the ones from apple devices
 import * as Ps from 'perfect-scrollbar';
 import 'perfect-scrollbar/dist/css/perfect-scrollbar.min.css';
@@ -28,6 +29,7 @@ class Dash extends Component{
             _notificationSystem: null
         };
     }
+
     componentDidMount(){
         this.setState({_notificationSystem: this.refs.notificationSystem});
         if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
@@ -137,4 +139,11 @@ class Dash extends Component{
     }
 }
 
-export default Dash;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null,
+        currentUser: state.auth.currentUser
+    }
+}
+
+export default connect(mapStateToProps, null)(Dash);

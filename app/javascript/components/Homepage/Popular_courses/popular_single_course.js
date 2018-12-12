@@ -13,10 +13,10 @@ class Popular_single_course extends React.Component {
             <img
               className="img-fluid w-100"
               src={this.props.avatar}
-              alt width={"30"} height={"30"}
+              width={"30"} height={"30"}
             />
             <div className="authr_meta">
-              <img src={this.props.avatar} alt width={"30"} height={"30"} />
+              <img src={this.props.avatar} width={"30"} height={"30"} />
               <span>{this.props.name}</span>
             </div>
           </div>

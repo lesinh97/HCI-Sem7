@@ -5,7 +5,7 @@ class header_main_search extends React.Component {
     return (
       <div className="search_input" id="search_input_box">
         <div className="container">
-          <form className="d-flex justify-content-between" method action>
+          <form className="d-flex justify-content-between">{/*  // method action */}
             <input
               type="text"
               className="form-control"

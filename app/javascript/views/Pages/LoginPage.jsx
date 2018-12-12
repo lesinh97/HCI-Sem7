@@ -26,11 +26,7 @@ class LoginPage extends Component{
                     value: '',
                 },
             },
-            cardHidden: true
         }
-    }
-    componentDidMount(){
-        setTimeout(function() { this.setState({cardHidden: false}); }.bind(this), 700);
     }
 
     handleChange = (event, controlName) => {
@@ -57,7 +53,6 @@ class LoginPage extends Component{
                     <Col md={4} sm={6} mdOffset={4} smOffset={3}>
                         <form onSubmit={this.submitHandler}>
                             <Card
-                                hidden={this.state.cardHidden}
                                 textCenter
                                 title="Login"
                                 content={

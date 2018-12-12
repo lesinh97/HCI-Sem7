@@ -66,7 +66,7 @@ class Header extends Component{
                 </Navbar.Header>
 
                     {/* Here we import the links that appear in navbar */}
-                    { window.innerWidth > 992 ? (<Navbar.Collapse><HeaderLinks /></Navbar.Collapse>):null }
+                    { window.innerWidth > 992 ? (<Navbar.Collapse><HeaderLinks isAuthenticated={this.props.isAuthenticated} currentUser={this.props.currentUser}/></Navbar.Collapse>):null }
 
             </Navbar>
         );

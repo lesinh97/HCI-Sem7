@@ -10,7 +10,7 @@ class Single_course extends React.Component {
       <div className={this.props.arr_style}>
         <div className="single_department">
           <div className="dpmt_icon">
-            <img src={this.props.icon} alt />
+            <img src={this.props.icon} />
           </div>
           <h4>{this.props.course_name}</h4>
         </div>

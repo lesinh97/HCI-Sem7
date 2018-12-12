@@ -10,24 +10,24 @@ import dev_icon from "../../../assets/img/homepage/deparment/icon7.png"
 
 
 
- var icon = [
-    lang_icon,
-    bussi_icon,
-    litt_icon,
-    software_icon,
-    design_icon,
-    coach_icon,
-    dev_icon,
-  ];
- var course_name = [
-    "English",
-    "Big data",
-    "Science",
-    "Software",
-    "Design",
-    "Coaching",
-    "Development",
-  ];
+var icon = [
+  lang_icon,
+  bussi_icon,
+  litt_icon,
+  software_icon,
+  design_icon,
+  coach_icon,
+  dev_icon,
+];
+var course_name = [
+  "English",
+  "Big data",
+  "Science",
+  "Software",
+  "Design",
+  "Coaching",
+  "Development",
+];
 var course_style = [
   "col-lg-4 col-md-4 col-sm-6 col-12 text-center mt-100 center",
   "col-lg-4 col-md-4 col-sm-6 col-12 text-center center",
@@ -36,7 +36,7 @@ var course_style = [
   "col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100",
   "col-lg-4 col-md-4 col-sm-6 col-12 text-center",
   "offset-lg-4 col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100",
-  ];
+];
 
 class Courses extends React.Component {
   constructor(props) {
@@ -52,10 +52,10 @@ class Courses extends React.Component {
         <div className="row">
           {}
           {
-          this.state.arr_style.map(item => (
-            <Single_course arr_style= {item} icon = {icon[course_style.indexOf(item)]} course_name = {course_name[course_style.indexOf(item)]} />
-          ))
-          }         
+            this.state.arr_style.map((item, index) => (
+              <Single_course arr_style={item} icon={icon[course_style.indexOf(item)]} course_name={course_name[course_style.indexOf(item)]} key={index} />
+            ))
+          }
           {}
         </div>
       </div>
