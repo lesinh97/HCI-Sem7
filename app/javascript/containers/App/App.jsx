@@ -18,6 +18,9 @@ import Homepage from '../../components/Homepage/Homepage';
 class App extends Component{
     constructor(props) {
         super(props);
+    }
+
+    componentWillMount() {
         this.props.checkSignIn();
     }
 
@@ -64,4 +67,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
