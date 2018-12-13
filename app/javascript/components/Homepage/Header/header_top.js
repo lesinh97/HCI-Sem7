@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from 'react-router-dom'
 class header_top extends React.Component {
   render() {
     return (
@@ -7,23 +7,29 @@ class header_top extends React.Component {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 col-sm-6 col-4 header-top-left">
-              <a href="#">
+              <Link to="#">
                 <span className="lnr lnr-phone" />
                 <span className="text">
                   <span className="text">+84 77 858 2046</span>
                 </span>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <span className="lnr lnr-envelope" />
                 <span className="text">
                   <span className="text">AN HIU XINH</span>
                 </span>
-              </a>
+              </Link>
             </div>
             <div className="col-lg-6 col-sm-6 col-8 header-top-right">
-              <a href="#" className="text-uppercase">
+            <Link to="#" className="text-uppercase">
+                Username
+              </Link>
+              <Link to="#" className="text-uppercase">
                 Login
-              </a>
+              </Link>
+              <Link to="#" className="text-uppercase">
+                Logout
+              </Link>
             </div>
           </div>
         </div>

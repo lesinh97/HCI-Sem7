@@ -1071,7 +1071,7 @@ button:focus {
     .single_event .event_details h4 a {
       color: #222222; }
   .single_event:hover img {
-    transform: scale(1.1); }
+    transform: scale(1.3); }
   .single_event:hover h4 a {
     color: #00aee0; }
 
