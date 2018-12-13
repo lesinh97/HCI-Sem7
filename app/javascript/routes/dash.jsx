@@ -30,6 +30,7 @@ var dashRoutes = [
     { path: "/admin/manageUser", name: "Manage User", icon: "pe-7s-piggy", component: Users },
     { path: "/admin/dashboard", name: "Dashboard", icon: "pe-7s-graph", component: Dashboard },
     { path: "/admin/manageClass", name: "Manage Class", icon: "pe-7s-graph", component: ManageClass },
+    { path: "/admin/managePopular", name: "Manage Popular courese", icon: "pe-7s-graph", component: ManagePopular },
     { collapse: true, path: "/admin/components", name: "Components", state: "openComponents", icon: "pe-7s-plugin", views:[
         { path: "/admin/components/buttons", name: "Buttons", mini: "B", component: Buttons },
         { path: "/admin/components/grid-system", name: "Grid System", mini: "GS", component: GridSystem },
