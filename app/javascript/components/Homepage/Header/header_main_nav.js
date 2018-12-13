@@ -1,14 +1,15 @@
 import React from "react";
 import logo from "../../../assets/img/homepage/logo.png"
+import {Link} from 'react-router-dom'
 class header_main_nav extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container">
           {}
-          <a className="navbar-brand logo_h" href="index.html">
-            <img src={logo} width={"70"} height={"40"} />
-          </a>
+          <Link className="navbar-brand logo_h" to="/homepage">
+            <img src={logo} alt =" " width={"150"} height={"50"} />
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -29,18 +30,18 @@ class header_main_nav extends React.Component {
           >
             <ul className="nav navbar-nav menu_nav ml-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="index.html">
+                <Link className="nav-link" to="/homepage">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="about-us.html">
+                <Link className="nav-link" to="#">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item submenu dropdown">
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="nav-link dropdown-toggle"
                   data-toggle="dropdown"
                   role="button"
@@ -48,28 +49,28 @@ class header_main_nav extends React.Component {
                   aria-expanded="false"
                 >
                   Pages
-                </a>
+                </Link>
                 <ul className="dropdown-menu">
                   <li className="nav-item">
-                    <a className="nav-link" href="courses.html">
+                    <Link className="nav-link" to="#">
                       Courses
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="course-details.html">
+                    <Link className="nav-link" to="#">
                       Course Details
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="elements.html">
-                      Elements
-                    </a>
+                    <Link className="nav-link" to="#">
+                      Bomman
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item submenu dropdown">
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="nav-link dropdown-toggle"
                   data-toggle="dropdown"
                   role="button"
@@ -77,29 +78,29 @@ class header_main_nav extends React.Component {
                   aria-expanded="false"
                 >
                   Blog
-                </a>
+                </Link>
                 <ul className="dropdown-menu">
                   <li className="nav-item">
-                    <a className="nav-link" href="blog.html">
+                    <Link className="nav-link" to="#">
                       Blog
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="single-blog.html">
+                    <Link className="nav-link" to="#">
                       Blog Details
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="contact.html">
+                <Link className="nav-link" to="#">
                   Contact
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link search" id="search">
+                <Link to="#" className="nav-link search" id="search">
                   <i className="lnr lnr-magnifier" />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

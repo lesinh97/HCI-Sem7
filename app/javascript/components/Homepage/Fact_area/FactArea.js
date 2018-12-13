@@ -1,7 +1,23 @@
 import React from "react";
 import Fact_single from "./fact_single";
+import icon1 from '../../../../assets/stylesheets/homepage/img/f-icons/icon1.png'
+import icon2 from '../../../../assets/stylesheets/homepage/img/f-icons/icon2.png'
+import icon3 from '../../../../assets/stylesheets/homepage/img/f-icons/icon3.png'
+import icon4 from '../../../../assets/stylesheets/homepage/img/f-icons/icon4.png'
+import icon5 from '../../../../assets/stylesheets/homepage/img/f-icons/icon5.png'
+import icon6 from '../../../../assets/stylesheets/homepage/img/f-icons/icon6.png'
+
+const ICON = {
+  icon: [
+    icon1, icon2, icon3, icon4, icon5, icon6
+  ]
+}
 
 class FactArea extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = ICON;
+  }
   render() {
     return (
       <div className="fact_area overlay">
@@ -20,7 +36,11 @@ class FactArea extends React.Component {
           </div>
           <div className="row">
             {}
-            <Fact_single />
+            {
+            this.state.icon.map((item, index) => (
+            <Fact_single icon = {item} key={index}/>
+              ))
+            }    
             {}
           </div>
         </div>

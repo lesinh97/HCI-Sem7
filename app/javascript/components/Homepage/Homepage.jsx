@@ -5,7 +5,9 @@ import Feature from './Feature/Feature';
 import Department from './Department/Department';
 import PopularCourses from './Popular_courses/PopularCourses';
 import FactArea from './Fact_area/FactArea';
-
+import RegistrationArea from './Registration/RegistrationArea'
+import EventArea from './Event/EventArea'
+import FooterArea from './Footer/FooterArea'
 // import '../../../assets/stylesheets/homepage/css/bootstrap.css';
 // import '../../../../node_modules/font-awesome/css/font-awesome.min.css'; 
 // import '../../../assets/stylesheets/homepage/css/style.css';
@@ -24,6 +26,9 @@ class Homepage extends Component {
                 <Department />
                 <PopularCourses />
                 <FactArea />
+                <RegistrationArea />
+                <EventArea />
+                <FooterArea />
             </div>
         )
     }

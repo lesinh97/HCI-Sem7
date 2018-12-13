@@ -20,6 +20,7 @@ import Charts from 'views/Charts/Charts.jsx';
 import Calendar from 'views/Calendar/Calendar.jsx';
 import UserPage from 'views/Pages/UserPage.jsx';
 import Users from 'views/Users/Users.jsx'
+import ManageClass from 'views/ManageClass/ManageClass.jsx';
 
 import pagesRoutes from './pages.jsx';
 
@@ -28,6 +29,7 @@ var pages = [{ path: "/pages/user-page", name: "User Page", mini: "UP", componen
 var dashRoutes = [
     { path: "/admin/manageUser", name: "Manage User", icon: "pe-7s-piggy", component: Users },
     { path: "/admin/dashboard", name: "Dashboard", icon: "pe-7s-graph", component: Dashboard },
+    { path: "/admin/manageClass", name: "Manage Class", icon: "pe-7s-graph", component: ManageClass },
     { collapse: true, path: "/admin/components", name: "Components", state: "openComponents", icon: "pe-7s-plugin", views:[
         { path: "/admin/components/buttons", name: "Buttons", mini: "B", component: Buttons },
         { path: "/admin/components/grid-system", name: "Grid System", mini: "GS", component: GridSystem },
