@@ -1,6 +1,5 @@
 import React from "react";
-import teacher_boom from "../../../assets/img/homepage/popular_course/course1.jpg"
-
+import { Link } from "react-router-dom"
 class Popular_single_course extends React.Component {
   constructor(props) {
     super(props);
@@ -12,35 +11,34 @@ class Popular_single_course extends React.Component {
           <div className="course_head overlay">
             <img
               className="img-fluid w-100"
-              src={this.props.avatar}
+              src={this.props.teacher_pic} 
               width={"30"} height={"30"}
             />
             <div className="authr_meta">
-              <img src={this.props.avatar} width={"30"} height={"30"} />
-              <span>{this.props.name}</span>
+              <img src={this.props.teacher_pic} width={"30"} height={"30"} />
+              <span>{this.props.teacher_name}</span>
             </div>
           </div>
           <div className="course_content">
             <h4>
-              <a href="course-details.html">Learn React js beginners</a>
+              <Link to="#">{this.props.course_name}</Link>
             </h4>
             <p>
-              When television was young, there was a huge popular show based on
-              the still popular fictional character of Superman.
+              {this.props.single_course_description}
             </p>
             <div className="course_meta d-flex justify-content-between">
               <div>
                 <span className="meta_info">
-                  <a href="#">
+                  <Link to="#">
                     <i className="lnr lnr-user" />
                     355
-                  </a>
+                  </Link>
                 </span>
                 <span className="meta_info">
-                  <a href="#">
+                  <Link to="#">
                     <i className="lnr lnr-bubble" />
                     35
-                  </a>
+                  </Link>
                 </span>
               </div>
               <div>

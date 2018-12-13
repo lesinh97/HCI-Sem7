@@ -5,7 +5,7 @@ class Course_description extends React.Component {
     return (
       <div className="offset-lg-1 col-lg-5">
         <div className="dpmt_right">
-          <h1>Over 2500 Courses from 5 Platform</h1>
+          <h1>{this.props.depart_description}</h1>
           <p>
             There is a moment in the life of any aspiring astronomer that it is
             time to buy that first telescope. It’s exciting to think about

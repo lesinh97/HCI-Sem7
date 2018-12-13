@@ -7,12 +7,12 @@ class Single_course extends React.Component {
   }
   render() {
     return (
-      <div className={this.props.arr_style}>
+      <div className={this.props.depart_style}>
         <div className="single_department">
           <div className="dpmt_icon">
             <img src={this.props.icon} />
           </div>
-          <h4>{this.props.course_name}</h4>
+          <h4>{this.props.depart_name}</h4>
         </div>
       </div>
     );
