@@ -11,9 +11,6 @@ import Card from 'components/Card/Card.jsx';
 require('datatables.net-responsive');
 $.DataTable = require('datatables.net-bs');
 
-
-
-
 const dataTable = {
     headerRow: [ 'Name', 'Position', 'Office', 'Age', 'Date', 'Actions' ],
     footerRow: [ 'Name', 'Position', 'Office', 'Age', 'Date', 'Actions' ],
