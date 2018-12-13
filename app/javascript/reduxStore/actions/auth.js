@@ -26,7 +26,8 @@ export const authFail = (error) => {
 export const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
-    localStorage.removeItem('userId');    
+    localStorage.removeItem('userId');   
+    localStorage.removeItem('currentUser');
     return {
         type: actionTypes.AUTH_LOGOUT
     }
@@ -43,16 +44,22 @@ export const checkAuthTimeout = (expirationTime) => {
 export const auth = (email, password) => {
     return dispatch => {
         dispatch(authStart());
+        // const authData = {
+        //     email: email,
+        //     password: password,
+        //     returnSecureToken: true
+        // };
         const authData = {
-            email: email,
-            password: password,
-            returnSecureToken: true
+            login_email: email,
+            login_password: password
         };
-        //url tào l
+        //url tào lao
         let url = "https://5c0f8c30fc4df20013083a63.mockapi.io/foobaripa/user";
+        // url = "http://localhost:3001/sessions/"
+        console.log(authData);
         axios.post(url, authData)
         .then(response => {
-            console.log(response);
+            console.log(response.data);
             const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
             localStorage.setItem('token', response.data.idToken);
             // localStorage.setItem('expirationDate', expirationDate);
