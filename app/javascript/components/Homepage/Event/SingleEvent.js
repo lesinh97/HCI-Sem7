@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class SingleEvent extends React.Component {
   render() {
@@ -15,9 +16,9 @@ class SingleEvent extends React.Component {
                 </div>
                 <div className="col-lg-6 col-md-7">
                   <div className="event_details">
-                    <p>25th February, 2017</p>
+                    <p>{this.props.init_day}</p>
                     <h4>
-                      <a href="#">The Universe Through A Child S Eyes</a>
+                      <Link to="#">{this.props.name}</Link>
                     </h4>
                     <p>
                       Lorem ipsum dolor sit amet consec tetur adipisicing elit,

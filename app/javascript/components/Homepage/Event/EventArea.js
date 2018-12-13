@@ -1,17 +1,9 @@
 import React from "react";
 import SingleEvent from "./SingleEvent";
-import event1 from '../../../../assets/stylesheets/homepage/img/event1.jpg'
-import event2 from '../../../../assets/stylesheets/homepage/img/event2.jpg'
 
-const IMAGE = {
-  image: [
-    event1, event2
-  ]
-}
 class EventArea extends React.Component {
   constructor(props) {
     super(props);
-    this.state = IMAGE
   }
   render() {
     return (
@@ -31,8 +23,8 @@ class EventArea extends React.Component {
           </div>
           <div className="row">
           {
-            this.state.image.map((item, index) => (
-            <SingleEvent image = {item} key={index}/>
+            this.props.event_name.map((item) => (
+            <SingleEvent name = {item} image={this.props.event_img[this.props.event_name.indexOf(item)]} init_day={this.props.init_day[this.props.event_name.indexOf(item)]} />
               ))
             }    
           </div>
