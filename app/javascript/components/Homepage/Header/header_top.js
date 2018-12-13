@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../../reduxStore/actions/actionsIndex';
 
+import { isAllowed } from '../../../reduxStore/utility';
 class header_top extends React.Component {
   render() {
     let loginlogout = (
@@ -15,11 +16,17 @@ class header_top extends React.Component {
         </Link>
       </div >
     )
+    console.log(this.props.currentUser)
     if(this.props.currentUser !== null) loginlogout = (
       < div >
       <Link to="#" className="text-uppercase">
         {this.props.currentUser.email}
       </Link>
+      { isAllowed(this.props.currentUser, "admin") ? 
+        <Link to="/admin" className="text-uppercase">
+          ADMINCP
+        </Link> : null 
+      }
       <Link to="#" className="text-uppercase" onClick={this.props.logout}>
         Logout
       </Link>
