@@ -17,8 +17,8 @@ class FooterWidgetNew extends React.Component {
               className="form-control"
               name="EMAIL"
               placeholder="Your Email Address"
-              onfocus="this.placeholder = ''"
-              onblur="this.placeholder = 'Your Email Address'"
+              // onFocus="this.placeholder = ''"
+              // onBlur="this.placeholder = 'Your Email Address'"
               required
               type="email"
             />

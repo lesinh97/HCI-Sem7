@@ -19,8 +19,8 @@ class FooterWidget extends React.Component {
     return (
       <div className="row">
         {
-          this.state.competitive.map((item) => (
-            <FooterWidgetLink competitive ={item} /> 
+          this.state.competitive.map((item, index) => (
+            <FooterWidgetLink competitive ={item} key={index} /> 
           ))
         }   
         <FooterWidgetNew />

@@ -191,7 +191,7 @@ class ManageClass extends Component {
                     <Row>
                         <Col md={11}>
                             <Button className="pull-right" bsStyle="primary" bsSize="large" onClick={this.handleShow}>
-                                <i className="glyphicon glyphicon-plus-sign" style={glyphiconStyles}></i>
+                                <i className="pe-7s-add-user" style={glyphiconStyles}></i>
                             </Button>
                         </Col>
                     </Row>
