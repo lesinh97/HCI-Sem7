@@ -20,8 +20,8 @@ class FooterWidgetLink extends React.Component {
         <h4>{this.props.competitive}</h4>
         <ul>
         {
-          this.state.name.map((item) => (
-            <li><Link to="/#">{item}</Link></li>
+          this.state.name.map((item, index) => (
+            <li key={index}><Link to="/#" >{item}</Link></li>
           ))
         }   
         </ul>

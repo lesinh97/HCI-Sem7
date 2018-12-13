@@ -1,7 +1,31 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../../../reduxStore/actions/actionsIndex';
+
 class header_top extends React.Component {
   render() {
+    let loginlogout = (
+      < div >
+        <Link to="#" className="text-uppercase">
+          FOOBAR
+        </Link>
+        <Link to="/pages/login-page" className="text-uppercase">
+          Login
+        </Link>
+      </div >
+    )
+    if(this.props.currentUser !== null) loginlogout = (
+      < div >
+      <Link to="#" className="text-uppercase">
+        {this.props.currentUser.email}
+      </Link>
+      <Link to="#" className="text-uppercase" onClick={this.props.logout}>
+        Logout
+      </Link>
+    </div >
+    )
+
     return (
       <div className="header-top">
         <div className="container">
@@ -21,15 +45,7 @@ class header_top extends React.Component {
               </Link>
             </div>
             <div className="col-lg-6 col-sm-6 col-8 header-top-right">
-            <Link to="#" className="text-uppercase">
-                Username
-              </Link>
-              <Link to="#" className="text-uppercase">
-                Login
-              </Link>
-              <Link to="#" className="text-uppercase">
-                Logout
-              </Link>
+              {loginlogout}
             </div>
           </div>
         </div>
@@ -38,4 +54,16 @@ class header_top extends React.Component {
   }
 }
 
-export default header_top;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.auth.currentUser
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(actions.logout())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(header_top);

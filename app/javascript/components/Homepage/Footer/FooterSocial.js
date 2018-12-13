@@ -25,7 +25,7 @@ class FooterSocial extends React.Component {
         <div className="col-lg-4 col-sm-12 footer-social">
         {
           this.state.social.map((item, index) => (
-            <Link to="/#"><i className={item} /></Link> 
+            <Link to="/#" key={index}><i className={item} /></Link> 
           ))
         } 
         </div>
