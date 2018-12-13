@@ -19,12 +19,14 @@ import VectorMap from 'views/Maps/VectorMap.jsx';
 import Charts from 'views/Charts/Charts.jsx';
 import Calendar from 'views/Calendar/Calendar.jsx';
 import UserPage from 'views/Pages/UserPage.jsx';
+import Users from 'views/Users/Users.jsx'
 
 import pagesRoutes from './pages.jsx';
 
 var pages = [{ path: "/pages/user-page", name: "User Page", mini: "UP", component: UserPage }].concat(pagesRoutes);
 
 var dashRoutes = [
+    { path: "/admin/manageUser", name: "Manage User", icon: "pe-7s-piggy", component: Users },
     { path: "/admin/dashboard", name: "Dashboard", icon: "pe-7s-graph", component: Dashboard },
     { collapse: true, path: "/admin/components", name: "Components", state: "openComponents", icon: "pe-7s-plugin", views:[
         { path: "/admin/components/buttons", name: "Buttons", mini: "B", component: Buttons },
