@@ -22,6 +22,7 @@ import UserPage from 'views/Pages/UserPage.jsx';
 import Users from 'views/Users/Users.jsx'
 import ManageClass from 'views/ManageClass/ManageClass.jsx';
 import ManagePopular from 'views/ManagePopular/ManagePopular.jsx';
+import Invoices from '../views/Invoices/Invoices';
 
 import pagesRoutes from './pages.jsx';
 
@@ -29,7 +30,8 @@ var pages = [{ path: "/pages/user-page", name: "User Page", mini: "UP", componen
 
 var dashRoutes = [
   { path: "/admin/dashboard", name: "Dashboard", icon: "pe-7s-graph", component: Dashboard },
-    { path: "/admin/manageUser", name: "Manage User", icon: "pe-7s-piggy", component: Users },
+    { path: "/admin/manageUser", name: "Manage User", icon: "pe-7s-study", component: Users },
+    { path: "/admin/manageInvoice", name: "Manage Invoice", icon: "pe-7s-piggy", component: Invoices },
     { path: "/admin/manageClass", name: "Manage Class", icon: "pe-7s-graph", component: ManageClass },
     { path: "/admin/managePopular", name: "Manage Popular courese", icon: "pe-7s-graph", component: ManagePopular },
     { collapse: true, path: "/admin/components", name: "Components", state: "openComponents", icon: "pe-7s-plugin", views:[
