@@ -12,10 +12,12 @@ class Courses extends React.Component {
         <div className="row">
           {}
           {
-            this.props.depart_style.map((item, index) => (
-              <Single_course depart_style={item}
-                depart_name={this.props.depart_name[this.props.depart_style.indexOf(item)]}
-                icon = {this.props.icon[this.props.depart_style.indexOf(item)]} key={index} />
+            this.props.depart_lists.map((item, index) => (
+              <Single_course depart_style = {item.depart_style}
+                  depart_name = {item.depart_name}
+                  icon = {item.icon}
+                  key = {index} 
+              />
             ))
           }
           {}

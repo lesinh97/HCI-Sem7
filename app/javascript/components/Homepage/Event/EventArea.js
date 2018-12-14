@@ -23,11 +23,11 @@ class EventArea extends React.Component {
           </div>
           <div className="row">
             {
-              this.props.event_name.map((item, index) => (
+              this.props.event_lists.map((item, index) => (
                 <SingleEvent 
-                  name={item} 
-                  image={this.props.event_img[this.props.event_name.indexOf(item)]} 
-                  init_day={this.props.init_day[this.props.event_name.indexOf(item)]} 
+                  name={item.event_name} 
+                  image={item.img} 
+                  init_day={item.init_day} 
                   key={index}
                 />
               ))

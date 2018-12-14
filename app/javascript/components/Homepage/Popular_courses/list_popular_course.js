@@ -11,13 +11,13 @@ class List_popular_course extends React.Component {
       <div className="row">
         {}
         {
-          this.props.course_name.map((item, index) => (
-            <Popular_single_course course_name = {item} 
-              teacher_name={this.props.teacher_name[this.props.course_name.indexOf(item)]}
-              teacher_pic = {this.props.teacher_pic[this.props.course_name.indexOf(item)]}
-              single_course_description = {this.props.single_course_description}
-              key={index}     
-              />
+          this.props.course_lists.map((item, index) =>(
+            <Popular_single_course course_name = {item.course_name}
+                    single_des = {item.single_des}
+                    teacher_name = {item.teacher_name}
+                    teacher_pic = {item.teacher_pic}
+                    key = {index}
+            />
           ))
           }     
         {}

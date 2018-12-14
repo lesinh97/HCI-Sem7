@@ -28,21 +28,15 @@ class Homepage extends Component {
                 <Header />
                 <Banner />
                 <Feature />
-                <Department depart_name = {this.props.departments.depart_name}
-                        depart_style = {this.props.departments.depart_style}
-                        icon = {this.props.departments.icon}
+                <Department depart_lists = {this.props.departments.depart_lists}
                         depart_description = {this.props.departments.depart_description}
                 />
-                <PopularCourses course_name = {this.props.courses.course_name} 
-                        teacher_name = {this.props.courses.teacher_name}
-                        teacher_pic = {this.props.courses.teacher_pic}
-                        course_description = {this.props.courses.course_description}
-                        single_course_description = {this.props.courses.single_course_description} />
+                <PopularCourses course_lists = {this.props.courses.course_lists}
+                        course_description = {this.props.courses.course_description}      
+                />
                 <FactArea fact_icon = {this.props.facts.fact_icon}/>
                 <RegistrationArea />
-                <EventArea event_name = {this.props.events.event_name}
-                        event_img = {this.props.events.event_img}
-                        init_day = {this.props.events.init_day} />
+                <EventArea event_lists = {this.props.events.event_lists} />
                 <FooterArea />
             </div>
         )

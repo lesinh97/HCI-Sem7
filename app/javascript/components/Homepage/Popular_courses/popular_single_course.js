@@ -24,7 +24,7 @@ class Popular_single_course extends React.Component {
               <Link to="#">{this.props.course_name}</Link>
             </h4>
             <p>
-              {this.props.single_course_description}
+              {this.props.single_des}
             </p>
             <div className="course_meta d-flex justify-content-between">
               <div>

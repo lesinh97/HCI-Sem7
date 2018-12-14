@@ -27,72 +27,101 @@ import icon3 from '../../../assets/stylesheets/homepage/img/f-icons/icon3.png'
 import icon4 from '../../../assets/stylesheets/homepage/img/f-icons/icon4.png'
 import icon5 from '../../../assets/stylesheets/homepage/img/f-icons/icon5.png'
 import icon6 from '../../../assets/stylesheets/homepage/img/f-icons/icon6.png'
+
+
 const initialState = {
     events: {
-        event_name:[
-            "Bomman_cache",
-            "Bomman_mirage",
-            "Bomman_inferno",
-            "Bomman_overpass"
-        ],
-        event_img:[
-           event1, event2, event3, event4
-        ],
-        init_day:[
-            "31st February, 2018",
-            "31st February, 2018",
-            "31st February, 2018",
-            "31st February, 2018"
-        ]
+      event_lists: [
+        {
+          event_name: "Bomman_cache",
+          img: event1,
+          init_day: "Just a momment ago"
+        },
+        {
+          event_name: "Bomman_mirage",
+          img: event2,
+          init_day: "Just a momment ago"
+        },
+        {
+          event_name: "Bomman_inferno",
+          img: event3,
+          init_day: "Just a momment ago"
+        },
+        {
+          event_name: "Bomman_overpass",
+          img: event4,
+          init_day: "Just a momment ago"
+        }
+      ]
     },
     courses: {
-        course_description: "There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station.",
-        single_course_description: "When television was young, there was a huge popular show based on the still popular fictional character of Superman.",
-        course_name:[
-            "Full eco rush mid",
-            "Họa mi hót",
-            "Sinh bắn hay",
-            "Rush B non stop"
-        ],
-        teacher_name:[
-            "Bomman",
-            "Mai Nam Hai",
-            "Anh trong tai",
-            "de_vailon"
-        ],
-        teacher_pic:[
-            teacher1, teacher2, teacher3, teacher4
-        ]
+      course_lists: [
+        {
+          course_name: "Full eco rush mid",
+          single_des: "Let cap the round",
+          teacher_name: "Bomman",
+          teacher_pic: teacher1
+        },
+        {
+          course_name: "Họa mi hót",
+          single_des: "From this point of time, the bird do not sing anymore",
+          teacher_name: "Mai Nam Hai",
+          teacher_pic: teacher2
+        },
+        {
+          course_name: "Sinh bắn hay",
+          single_des: "Sinh thì là phải bắn hay rồi",
+          teacher_name: "Đường Tăng",
+          teacher_pic: teacher3
+        },
+        {
+          course_name: "Rush B non stop",
+          single_des: "Phan Đình Đức lấp lỗ B site",
+          teacher_name: "de_vailon",
+          teacher_pic: teacher4
+        }
+      ],
+      course_description: "Once the nade has been thrown, the man will becomes Bomman"
     },
     departments: {
-        icon:[
-            lang_icon,
-            bussi_icon,
-            litt_icon,
-            software_icon,
-            design_icon,
-            coach_icon,
-            dev_icon,
-          ],
-          depart_name:[
-            "English",
-            "Big data",
-            "Science",
-            "Software",
-            "Design",
-            "Coaching",
-            "Development",
-          ],
-          depart_style:[
-            "col-lg-4 col-md-4 col-sm-6 col-12 text-center mt-100 center",
-            "col-lg-4 col-md-4 col-sm-6 col-12 text-center center",
-            "col-lg-4 col-md-4 col-sm-6 col-12 text-center mt-100",
-            "col-lg-4 col-md-4 col-sm-6 col-12 text-center center",
-            "col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100",
-            "col-lg-4 col-md-4 col-sm-6 col-12 text-center",
-            "offset-lg-4 col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100",
-          ],
-          depart_description: "Họa mi của bạn đã biết hót chưa?"
+      depart_lists: [
+        {
+          depart_name: "English",
+          icon: lang_icon,
+          depart_style: "col-lg-4 col-md-4 col-sm-6 col-12 text-center mt-100",
+        },
+        {
+          depart_name: "Big data",
+          icon: bussi_icon,
+          depart_style: "col-lg-4 col-md-4 col-sm-6 col-12 text-center",
+        },
+        {
+          depart_name: "Science",
+          icon: litt_icon,
+          depart_style: "col-lg-4 col-md-4 col-sm-6 col-12 text-center mt-100",
+        },
+        {
+          depart_name: "Software",
+          icon: software_icon,
+          depart_style: "col-lg-4 col-md-4 col-sm-6 col-12 text-center",
+        },
+        {
+          depart_name: "Design",
+          icon: design_icon,
+          depart_style: "col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100",
+        },
+        {
+          depart_name: "Coach",
+          icon: coach_icon,
+          depart_style: "col-lg-4 col-md-4 col-sm-6 col-12 text-center",
+        },
+        {
+          depart_name: "Development",
+          icon: dev_icon,
+          depart_style: "offset-lg-4 col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100",
+        }
+      ],
+      depart_description: "Họa mi của bạn đã biết hót chưa?"
     },
     facts: {
         fact_icon:[

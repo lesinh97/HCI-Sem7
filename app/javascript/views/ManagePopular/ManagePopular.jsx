@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // jQuery plugin - used for DataTables.net
 import $ from 'jquery';
+import connect from "../../components/Homepage/Homepage"
 import {
   Grid, Row, Col, Modal, Button, OverlayTrigger, Form, FormControl, FormGroup, ControlLabel, Checkbox
 } from 'react-bootstrap';
@@ -20,17 +21,16 @@ class ManagePopular extends Component {
         this.state = {
             showAddModal: false,
             dataTable: {
-                headerRow: ['Course name', 'Teacher name', 'Teacher picture', 'Course Description', 'Single course description'],
+                headerRow: ['Course name', 'Teacher name', 'Teacher picture', 'Single course description'],
 
                 dataRows: [
-                    // Khuc nay bo state  vao
-                ]
+
+                ],
             },
             addDepartFormData: {
                 CourseName: "",
                 TeacherName: "",
                 TeacherPic: "",
-                CourseDes: "",
                 SingleDes: ""
             }
         };
@@ -64,14 +64,6 @@ class ManagePopular extends Component {
         newState.addDepartFormData.TeacherPic = event.target.value;
         this.setState(newState);
     }
-
-
-    handleInputCourseDesChange = (event) => {
-        let newState = { ...this.state };
-        newState.addDepartFormData = { ...this.state.addDepartFormData };
-        newState.addDepartFormData.CourseDes = event.target.value;
-        this.setState(newState);
-    }
     handleInputSingleDesChange = (event) => {
         let newState = { ...this.state };
         newState.addDepartFormData = { ...this.state.addDepartFormData };
@@ -99,9 +91,8 @@ class ManagePopular extends Component {
         this.setState({
             addDepartFormData: {
                 CourseName: "",
-                TeacherName: "Bomman",
+                TeacherName:"",
                 TeacherPic: "",
-                CourseDes: "",
                 SingleDes: "",
             }
         })
@@ -175,7 +166,6 @@ class ManagePopular extends Component {
                                                     <th>{this.state.dataTable.headerRow[3]}</th>
                                                     {/* <th>{ dataTable.headerRow[3] }</th> */}
                                                     {/* <th>{ dataTable.headerRow[4] }</th> */}
-                                                    <th className="disabled-sorting text-right">{this.state.dataTable.headerRow[4]}</th>
                                                 </tr>
                                             </thead>
                                             {/* <tfoot>
@@ -267,19 +257,6 @@ class ManagePopular extends Component {
                                         type="text"
                                         value={this.state.addDepartFormData.TeacherPic}
                                         onChange={this.handleInputTeacherPicChange}
-                                    />
-                                </Col>
-                            </FormGroup>
-                            <FormGroup>
-                                <ControlLabel className="col-md-3">
-                                    Course Description
-                            </ControlLabel>
-                                <Col md={9}>
-                                    <FormControl
-                                        placeholder="Course description"
-                                        type="text"
-                                        value={this.state.addDepartFormData.CourseDes}
-                                        onChange={this.handleInputCourseDesChange}
                                     />
                                 </Col>
                             </FormGroup>

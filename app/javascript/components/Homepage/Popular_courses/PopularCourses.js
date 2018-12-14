@@ -19,10 +19,7 @@ class PopularCourses extends React.Component {
               </div>
             </div>
           </div>
-          <List_popular_course course_name = {this.props.course_name}
-            teacher_name = {this.props.teacher_name}
-            teacher_pic= {this.props.teacher_pic}
-            single_course_description = {this.props.single_course_description}  />
+          <List_popular_course course_lists = {this.props.course_lists}  />
         </div>
       </div>
     );

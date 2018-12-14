@@ -22,7 +22,7 @@ class ManageClass extends Component {
             showAddModal: false,
             dataTable: {
                 headerRow: ['Name', 'Ngay bat dau', 'So luong hoc sinh', 'Actions'],
-                // footerRow: [ 'Name', 'Ngay bat dau', 'So luong hoc sinh', 'Actions' ],
+
                 dataRows: [
                     ['Airi Satou', '1/1/2011', '40'],
                     ['Airi Xinh', '1/1/2031', '20'],

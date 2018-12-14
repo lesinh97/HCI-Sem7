@@ -8,5 +8,6 @@ export {
 export {
     updateCourses,
     updateEvents,
-    updateDepartments
+    updateDepartments,
+    updateFacts
 } from './homepage';
