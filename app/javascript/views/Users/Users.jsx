@@ -3,7 +3,7 @@ import {
   Grid, Row, Col,
   Table,
   OverlayTrigger,
-  Tooltip, Modal, FormGroup, FormControl, Media,Checkbox,ControlLabel
+  Tooltip, Modal, FormGroup, FormControl, Media, Checkbox, ControlLabel
 } from 'react-bootstrap';
 import axios from 'axios';
 // react component that creates a switch button that changes from on to off mode
@@ -14,6 +14,7 @@ import Card from 'components/Card/Card.jsx';
 import Button from 'elements/CustomButton/CustomButton.jsx';
 
 import { RegisterPage } from 'views/Pages/RegisterPage.jsx';
+import callApi from '../../reduxStore/apiCaller';
 
 class Users extends Component {
   constructor(props) {
@@ -23,10 +24,10 @@ class Users extends Component {
       userList: [],
       userFormData: {
         userName: "",
-        userRole:"",
-        userEmail:"",
-        userPhone:"",
-        userJoinDay:"",
+        userRole: "",
+        userEmail: "",
+        userPhone: "",
+        userJoinDay: "",
       },
     };
   }
@@ -36,37 +37,30 @@ class Users extends Component {
   }
 
   handleShow = (id) => {
-    axios.get('http://localhost:3001/users/' + id).then(res => {
+    callApi('users/' + id, 'GET', null).then(res => {
       this.setState({
         userFormData: {
           userName: res.data.name,
-          userRole:res.data.role,
-          userEmail:res.data.email,
-          userPhone:res.data.phone,
+          userRole: res.data.role,
+          userEmail: res.data.email,
+          userPhone: res.data.phone,
           userJoinDay: res.data.created_at
         }
+      })
     })
-    console.log(this.state.userFormData)
-    }).catch(function (err) {
-      console.log(err)
-    });
     this.setState({ showAddModal: true });
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3001/users/').then(res => {
+    callApi('users', 'GET', null).then(res => {
       this.setState({ userList: res.data });
-    }).catch(function (err) {
-      console.log(err)
-    });
+    })
   }
   onDelete = (id) => {
-    axios.delete('http://localhost:3001/users/' + id).then(res => {
-      axios.get('http://localhost:3001/users/').then(res => {
+    callApi('users/' + id, 'DELETE', null).then(res => {
+      callApi('users', 'GET', null).then(res => {
         this.setState({ userList: res.data });
-      }).catch(function (err) {
-        console.log(err)
-      });
+      })
     })
   }
   render() {
@@ -134,43 +128,43 @@ class Users extends Component {
           </Modal.Header>
           <Modal.Body>
             <Card
-                title={this.state.userFormData.userName}
-                content={
-                    <form>
-                        <FormGroup>
-                            <ControlLabel>
-                                Email
+              title={this.state.userFormData.userName}
+              content={
+                <form>
+                  <FormGroup>
+                    <ControlLabel>
+                      Email
                             </ControlLabel>
-                            <FormControl
-                                value={this.state.userFormData.userEmail}
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <ControlLabel>
-                            Số điện thoại
+                    <FormControl
+                      value={this.state.userFormData.userEmail}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>
+                      Số điện thoại
                             </ControlLabel>
-                            <FormControl
-                                value={this.state.userFormData.userPhone}
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <ControlLabel>
-                            Vị trí
+                    <FormControl
+                      value={this.state.userFormData.userPhone}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>
+                      Vị trí
                             </ControlLabel>
-                            <FormControl
-                                value={this.state.userFormData.userRole}
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <ControlLabel>
-                            Ngày tham gia
+                    <FormControl
+                      value={this.state.userFormData.userRole}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>
+                      Ngày tham gia
                             </ControlLabel>
-                            <FormControl
-                                value={this.state.userFormData.userJoinDay}
-                            />
-                        </FormGroup>
-                    </form>
-                }
+                    <FormControl
+                      value={this.state.userFormData.userJoinDay}
+                    />
+                  </FormGroup>
+                </form>
+              }
             />
           </Modal.Body>
         </Modal>
