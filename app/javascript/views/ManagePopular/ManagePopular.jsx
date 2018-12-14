@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// jQuery plugin - used for DataTables.net
+// jQuery plugin - used for DataTables.net'
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import {
   Grid, Row, Col, Modal, Button, OverlayTrigger, Form, FormControl, FormGroup, ControlLabel, Checkbox
@@ -32,7 +33,7 @@ class ManagePopular extends Component {
     }
 
     rawCoursesDataToTable = () => {
-      let rawData = this.props.homepage.courses;
+      let rawData = this.props.courses;
       if(!rawData) return {
         headerRow: [],
         dataRows: []
@@ -47,6 +48,8 @@ class ManagePopular extends Component {
       for (var i in rawData) {
         dataRows.push(Object.values(rawData[i]));
       }
+      console.log(headerRow);
+      console.log(dataRows)
       return { headerRow: headerRow, dataRows: dataRows};
     }
 
@@ -95,7 +98,11 @@ class ManagePopular extends Component {
         }
         let updatedDataTable = { ...this.state.dataTable };
         updatedDataTable.dataRows.push(newRow);
-        this.props.homepage.updateCourses(updatedDataTable);
+
+        let oldCoursesData = this.props.courses;
+        console.log(oldCoursesData )
+        oldCoursesData.push(this.state.addDepartFormData);
+        this.props.updateCourses(oldCoursesData);
         this.resetFormData();
         this.handleClose();
     }
@@ -163,6 +170,7 @@ class ManagePopular extends Component {
         return (
             <div className="main-content">
                 <Grid fluid>
+                <Link to="/homepage">Check</Link>
                     <Row>
                         <Col md={1}></Col>
                         <Col md={10}>
@@ -177,7 +185,7 @@ class ManagePopular extends Component {
                                                     <th>{this.state.dataTable.headerRow[1]}</th>
                                                     <th>{this.state.dataTable.headerRow[2]}</th>
                                                     <th>{this.state.dataTable.headerRow[3]}</th>
-                                                    {/* <th>{ dataTable.headerRow[3] }</th> */}
+                                                    <th>{this.state.dataTable.headerRow[4]}</th>
                                                     {/* <th>{ dataTable.headerRow[4] }</th> */}
                                                 </tr>
                                             </thead>

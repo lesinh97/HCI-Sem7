@@ -129,7 +129,7 @@ const initialState = {
 
 const updateCourses = (state, action) => {
     return updateObject(state, {
-        
+        courses: action.newCoursesInfo
     });
 };
 

@@ -11,7 +11,7 @@ class List_popular_course extends React.Component {
       <div className="row">
         {}
         {
-          this.props.courses.map((item, index) =>(
+          this.props.courses.map((item, index) => (
             <Popular_single_course course_name = {item.course_name}
                     single_des = {item.single_des}
                     teacher_name = {item.teacher_name}
