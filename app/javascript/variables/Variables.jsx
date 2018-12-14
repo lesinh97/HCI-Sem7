@@ -95,12 +95,12 @@ const ro_flag = require("../assets/img/flags/RO.png");
 const br_flag = require("../assets/img/flags/BR.png");
 
 const table_data = [
-    {"flag": us_flag, "country": "USA", "count": "2.920", "percentage": "53.23%"},
-    {"flag": de_flag, "country": "Germany", "count": "1.300", "percentage": "20.43%"},
-    {"flag": au_flag, "country": "Australia", "count": "760", "percentage": "10.35%"},
-    {"flag": gb_flag, "country": "United Kingdom", "count": "690", "percentage": "7.87%"},
-    {"flag": ro_flag, "country": "Romania", "count": "600", "percentage": "5.94%"},
-    {"flag": br_flag, "country": "Brasil", "count": "550", "percentage": "4.34%"}
+    {"flag": us_flag, "country": "Farmer-2", "count": "10/12/2018", "percentage": "80%"},
+    {"flag": us_flag, "country": "Farmer-1", "count": "10/12/2018", "percentage": "85%"},
+    {"flag": us_flag, "country": "Beginner-3", "count": "10/12/2018", "percentage": "80%"},
+    {"flag": us_flag, "country": "Beginner-3", "count": "10/12/2018", "percentage": "63.5%"},
+    {"flag": us_flag, "country": "Beginner-2", "count": "10/12/2018", "percentage": "90%"},
+    {"flag": us_flag, "country": "Beginner-1", "count": "10/12/2018", "percentage": "95%%"}
 ];
 
 
