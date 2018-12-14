@@ -21,9 +21,7 @@ class SingleEvent extends React.Component {
                       <Link to="#">{this.props.name}</Link>
                     </h4>
                     <p>
-                      Lorem ipsum dolor sit amet consec tetur adipisicing elit,
-                      sed do eiusmod tempor incididunt labore dolor sit amet
-                      consec tetur adipisicing elit sed.
+                      {this.props.description}
                     </p>
                   </div>
                 </div>

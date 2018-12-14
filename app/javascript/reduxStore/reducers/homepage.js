@@ -30,30 +30,32 @@ import icon6 from '../../../assets/stylesheets/homepage/img/f-icons/icon6.png'
 
 
 const initialState = {
-    events: {
-      event_lists: [
+    events: [
         {
-          event_name: "Bomman_cache",
+          event_name: "de_cache",
           img: event1,
-          init_day: "Just a momment ago"
+          init_day: "Just a long time ago",
+          description: "Did you see the Communist Party logo overthere?"
         },
         {
-          event_name: "Bomman_mirage",
+          event_name: "de_mirage",
           img: event2,
-          init_day: "Just a momment ago"
+          init_day: "Just a shorter time ago",
+          description: "Tunnel then connector bro!"
         },
         {
-          event_name: "Bomman_inferno",
+          event_name: "de_inferno",
           img: event3,
-          init_day: "Just a momment ago"
+          init_day: "Just a momment ago",
+          description: "Let me teach you how to take Banana alone!"
         },
         {
-          event_name: "Bomman_overpass",
+          event_name: "de_overpass",
           img: event4,
-          init_day: "Just a momment ago"
+          init_day: "Just a little bit ago",
+          description: "Rob the bank"
         }
-      ]
-    },
+    ],
     courses:[
         {
           course_name: "Full eco rush mid",
@@ -69,7 +71,7 @@ const initialState = {
         },
         {
           course_name: "Sinh bắn hay",
-          single_des: "Sinh thì là phải bắn hay rồi",
+          single_des: "1v5 clutch 5 sọ",
           teacher_name: "Đường Tăng",
           teacher_pic: teacher3
         },

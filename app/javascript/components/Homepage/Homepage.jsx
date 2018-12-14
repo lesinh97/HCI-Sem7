@@ -35,7 +35,7 @@ class Homepage extends Component {
                 />
                 <FactArea fact_icon = {this.props.facts.fact_icon}/>
                 <RegistrationArea />
-                <EventArea event_lists = {this.props.events.event_lists} />
+                <EventArea events = {this.props.events} />
                 <FooterArea />
             </div>
         )
