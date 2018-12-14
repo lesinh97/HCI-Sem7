@@ -1,10 +1,10 @@
 import * as actionTypes from './actionTypes';
 // import axios from 'axios';
 
-export const updateCourses = (coursesInfo) => {
+export const updateCourses = (courses) => {
     return {
         type: actionTypes.HOMEPAGE_UPDATE_COURSES_INFO,
-        newCoursesInfo: coursesInfo   
+        newCoursesInfo: courses   
     }
 }
 

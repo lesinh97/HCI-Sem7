@@ -14,12 +14,12 @@ class PopularCourses extends React.Component {
               <div className="main_title">
                 <h2>Popular Courses</h2>
                 <p>
-                  {this.props.course_description}
+                  Once the nade has been thrown
                 </p>
               </div>
             </div>
           </div>
-          <List_popular_course course_lists = {this.props.course_lists}  />
+          <List_popular_course courses = {this.props.courses}  />
         </div>
       </div>
     );

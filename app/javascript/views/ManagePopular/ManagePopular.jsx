@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 // jQuery plugin - used for DataTables.net
 import $ from 'jquery';
-import connect from "../../components/Homepage/Homepage"
 import {
   Grid, Row, Col, Modal, Button, OverlayTrigger, Form, FormControl, FormGroup, ControlLabel, Checkbox
 } from 'react-bootstrap';
 
+import { connect } from 'react-redux';  
+import * as actions from '../../reduxStore/actions/actionsIndex';
 import Card from 'components/Card/Card.jsx';
 
 // DataTables.net plugin - creates a tables with actions on it
@@ -20,13 +21,7 @@ class ManagePopular extends Component {
         super(props);
         this.state = {
             showAddModal: false,
-            dataTable: {
-                headerRow: ['Course name', 'Teacher name', 'Teacher picture', 'Single course description'],
-
-                dataRows: [
-                  props.
-                ],
-            },
+            dataTable: this.rawCoursesDataToTable(),
             addDepartFormData: {
                 CourseName: "",
                 TeacherName: "",
@@ -35,6 +30,26 @@ class ManagePopular extends Component {
             }
         };
     }
+
+    rawCoursesDataToTable = () => {
+      let rawData = this.props.homepage.courses;
+      if(!rawData) return {
+        headerRow: [],
+        dataRows: []
+      }
+  
+      let headerRow = [];
+      let dataRows = [];
+      for (var key in rawData[0]) {
+        headerRow.push(key)
+      }
+      headerRow.push("Action");
+      for (var i in rawData) {
+        dataRows.push(Object.values(rawData[i]));
+      }
+      return { headerRow: headerRow, dataRows: dataRows};
+    }
+
     handleClose = () => {
         this.setState({ showAddModal: false });
         this.resetFormData();
@@ -80,9 +95,7 @@ class ManagePopular extends Component {
         }
         let updatedDataTable = { ...this.state.dataTable };
         updatedDataTable.dataRows.push(newRow);
-        this.setState({
-            dataTable: updatedDataTable,
-        });
+        this.props.homepage.updateCourses(updatedDataTable);
         this.resetFormData();
         this.handleClose();
     }
@@ -291,4 +304,17 @@ class ManagePopular extends Component {
     }
 }
 
-export default ManagePopular;
+const mapStateToProps = state => {
+  return {
+    courses: state.homepage.courses,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    updateCourses: (updatedCourses) => dispatch(actions.updateCourses(updatedCourses))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ManagePopular);
+

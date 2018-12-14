@@ -31,8 +31,7 @@ class Homepage extends Component {
                 <Department depart_lists = {this.props.departments.depart_lists}
                         depart_description = {this.props.departments.depart_description}
                 />
-                <PopularCourses course_lists = {this.props.courses.course_lists}
-                        course_description = {this.props.courses.course_description}      
+                <PopularCourses courses = {this.props.courses}      
                 />
                 <FactArea fact_icon = {this.props.facts.fact_icon}/>
                 <RegistrationArea />

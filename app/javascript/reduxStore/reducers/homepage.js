@@ -54,8 +54,7 @@ const initialState = {
         }
       ]
     },
-    courses: {
-      course_lists: [
+    courses:[
         {
           course_name: "Full eco rush mid",
           single_des: "Let cap the round",
@@ -81,8 +80,6 @@ const initialState = {
           teacher_pic: teacher4
         }
       ],
-      course_description: "Once the nade has been thrown, the man will becomes Bomman"
-    },
     departments: {
       depart_lists: [
         {
@@ -132,7 +129,7 @@ const initialState = {
 
 const updateCourses = (state, action) => {
     return updateObject(state, {
-        courses: action.newCoursesInfo
+        
     });
 };
 
