@@ -8,13 +8,15 @@ import 'perfect-scrollbar/dist/css/perfect-scrollbar.min.css';
 import HeaderLinks from 'components/Header/HeaderLinks.jsx';
 
 // backgroundImage for Sidebar
-import image from 'assets/img/full-screen-image-3.jpg';
+import image from '../../assets/img/full-screen-image-2.jpg';
 // image for avatar in Sidebar
-import avatar from 'assets/img/default-avatar.png';
+import avatar from 'assets/img/Communism.jpg';
 // logo for sidebar
 import logo from "logo.svg";
 
 import dashRoutes from 'routes/dash.jsx';
+
+import { connect } from 'react-redux';
 
 const bgImage = {backgroundImage: "url("+image+")"};
 
@@ -42,13 +44,13 @@ class Sidebar extends Component{
             <div className="sidebar" data-color="black" data-image={image}>
                 <div className="sidebar-background" style={bgImage}></div>
                 <div className="logo">
-                	<a href="http://www.creative-tim.com" className="simple-text logo-mini">
+                	<a href="http://www.google.com" className="simple-text logo-mini">
                         <div className="logo-img">
                             <img src={logo} alt="react-logo" />
                         </div>
                 	</a>
-                	<a href="http://www.creative-tim.com" className="simple-text logo-normal">
-                		Creative Tim
+                	<a href="http://google.com" className="simple-text logo-normal">
+                		Creative Xinh
                 	</a>
                 </div>
                 <div className="sidebar-wrapper" ref="sidebarWrapper">
@@ -59,7 +61,7 @@ class Sidebar extends Component{
                         <div className="info">
                             <a onClick={ ()=> this.setState({ openAvatar: !this.state.openAvatar })}>
                                 <span>
-                                    Tania Andrew
+                                    {this.props.currentUser.email}
                                     <b className={this.state.openAvatar ? "caret rotate-180":"caret"}></b>
                                 </span>
                             </a>
@@ -153,4 +155,10 @@ class Sidebar extends Component{
     }
 }
 
-export default Sidebar;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.auth.currentUser,
+  }
+}
+
+export default connect(mapStateToProps, null)(Sidebar);

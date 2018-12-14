@@ -3,9 +3,9 @@ import { updateObject } from '../utility';
 
 
 const initialState = {
-    token: null,
     userId: null,
-    error: null,
+    token: null,
+    error: false,
     loading: false,
     currentUser: null,
     authRedirectPath: '/',

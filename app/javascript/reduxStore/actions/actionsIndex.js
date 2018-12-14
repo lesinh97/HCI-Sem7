@@ -10,3 +10,7 @@ export {
     updateEvents,
     updateDepartments
 } from './homepage';
+
+export {
+    updateCoursesClass
+} from './courseClass';

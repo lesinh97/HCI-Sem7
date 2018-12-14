@@ -30,11 +30,11 @@ const AsyncDash = asyncComponent(() => {
 import { isAllowed } from '../../reduxStore/utility';
 class App extends Component{
     constructor(props) {
-        super(props);
+      super(props);
     }
 
     componentDidMount() {
-        this.props.checkSignIn();
+      this.props.checkSignIn();
     }
 
     switchRoutes = () => {
@@ -45,7 +45,6 @@ class App extends Component{
                 <Route path="/homepage" component={AsyncHomePage} />
                 <Route path="/pages/login-page" exact component={AsyncPages} />
                 <Route path="/pages/register-page" exact component={AsyncPages} />
-                <Route path="/pages/lock-screen-page" exact component={AsyncPages} />
 
                 <Redirect exact from="/" to="/homepage" />
             </Switch>
@@ -54,9 +53,10 @@ class App extends Component{
             return (
                 <Switch>
                     <Route path="/homepage" component={AsyncHomePage} />
-                    {isAllowed(this.props.currentUser, "admin") ? <Route path="/admin" component={AsyncDash} /> : null}
+                    <Route path="/admin" component={AsyncDash} />
+                    {/* {isAllowed(this.props.currentUser, "admin") ? <Route path="/admin" component={AsyncDash} /> : null} */}
                     
-                    <Redirect from="/" to="/homepage" />
+                    <Redirect from="/" to="/admin" />
                 </Switch>
             )
         }

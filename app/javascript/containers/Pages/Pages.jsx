@@ -22,9 +22,6 @@ class Pages extends Component{
             case "/pages/register-page":
                 pageClass = " register-page";
                 break;
-            case "/pages/lock-screen-page":
-                pageClass = " lock-page";
-                break;
             default:
                 pageClass = "";
                 break;
