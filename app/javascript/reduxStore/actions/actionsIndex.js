@@ -8,6 +8,9 @@ export {
 export {
     updateCourses,
     updateEvents,
-    updateDepartments,
-    updateFacts
+    updateDepartments
 } from './homepage';
+
+export {
+    updateCoursesClass
+} from './courseClass';

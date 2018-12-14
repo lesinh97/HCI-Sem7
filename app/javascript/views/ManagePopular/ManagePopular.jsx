@@ -24,7 +24,7 @@ class ManagePopular extends Component {
                 headerRow: ['Course name', 'Teacher name', 'Teacher picture', 'Single course description'],
 
                 dataRows: [
-
+                  props.
                 ],
             },
             addDepartFormData: {

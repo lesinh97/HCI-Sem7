@@ -20,12 +20,14 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import authReducer from '../reduxStore/reducers/auth';
 import homepageReducer from '../reduxStore/reducers/homepage';
+import coursesClassReducer from '../reduxStore/reducers/courseClass';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    homepage: homepageReducer
+    homepage: homepageReducer,
+    coursesClass: coursesClassReducer
 });
 
 const store = createStore(
