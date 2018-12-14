@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // jQuery plugin - used for DataTables.net
 import $ from 'jquery';
 import {
-    Grid, Row, Col, Modal, Button, OverlayTrigger, Form, FormControl, FormGroup, ControlLabel, Checkbox
+  Grid, Row, Col, Modal, Button, OverlayTrigger, Form, FormControl, FormGroup, ControlLabel, Checkbox
 } from 'react-bootstrap';
 
 import Card from 'components/Card/Card.jsx';
@@ -12,7 +12,7 @@ require('datatables.net-responsive');
 $.DataTable = require('datatables.net-bs');
 
 const glyphiconStyles = {
-    fontSize: "30px"
+  fontSize: "30px"
 }
 class ManagePopular extends Component {
     constructor(props) {
@@ -65,13 +65,13 @@ class ManagePopular extends Component {
         this.setState(newState);
     }
 
+
     handleInputCourseDesChange = (event) => {
         let newState = { ...this.state };
         newState.addDepartFormData = { ...this.state.addDepartFormData };
         newState.addDepartFormData.CourseDes = event.target.value;
         this.setState(newState);
     }
-
     handleInputSingleDesChange = (event) => {
         let newState = { ...this.state };
         newState.addDepartFormData = { ...this.state.addDepartFormData };
