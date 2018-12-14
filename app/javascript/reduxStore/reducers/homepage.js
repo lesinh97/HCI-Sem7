@@ -20,6 +20,13 @@ import design_icon from "../../assets/img/homepage/deparment/icon5.png"
 import coach_icon from "../../assets/img/homepage/deparment/icon6.png"
 import dev_icon from "../../assets/img/homepage/deparment/icon7.png"
 ///////////////////////////////////////////////////////////////////////////////////// import img như này là tào lao này
+// fact
+import icon1 from '../../../assets/stylesheets/homepage/img/f-icons/icon1.png'
+import icon2 from '../../../assets/stylesheets/homepage/img/f-icons/icon2.png'
+import icon3 from '../../../assets/stylesheets/homepage/img/f-icons/icon3.png'
+import icon4 from '../../../assets/stylesheets/homepage/img/f-icons/icon4.png'
+import icon5 from '../../../assets/stylesheets/homepage/img/f-icons/icon5.png'
+import icon6 from '../../../assets/stylesheets/homepage/img/f-icons/icon6.png'
 const initialState = {
     events: {
         event_name:[
@@ -86,6 +93,11 @@ const initialState = {
             "offset-lg-4 col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100",
           ],
           depart_description: "Họa mi của bạn đã biết hót chưa?"
+    },
+    facts: {
+        fact_icon:[
+            icon1, icon2, icon3, icon4, icon5, icon6
+        ]
     }
 }
 
@@ -107,11 +119,17 @@ const updateEvents = (state, action) => {
     });
 };
 
+const updateFacts = (state, action) => {
+    return updateObject(state, {
+        facts: action.newFactsInfo
+    });
+}
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.HOMEPAGE_UPDATE_COURSES_INFO: return updateCourses(state, action);
         case actionTypes.HOMEPAGE_UPDATE_DEPARTMENTS_INFO: return updateDepartments(state, action);
         case actionTypes.HOMEPAGE_UPDATE_EVENTS_INFO: return updateEvents(state, action);
+        case actionTypes.HOMEPAGE_UPDATE_FACTS_INFO: return updateFacts(state, action);
         default:
             return state;
     }

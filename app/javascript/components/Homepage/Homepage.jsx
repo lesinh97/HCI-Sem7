@@ -21,9 +21,7 @@ import { connect } from 'react-redux';
 class Homepage extends Component {
     constructor(props) {
         super(props);
-        
     }
-
     render() {
         return (
             <div>
@@ -40,7 +38,7 @@ class Homepage extends Component {
                         teacher_pic = {this.props.courses.teacher_pic}
                         course_description = {this.props.courses.course_description}
                         single_course_description = {this.props.courses.single_course_description} />
-                <FactArea />
+                <FactArea fact_icon = {this.props.facts.fact_icon}/>
                 <RegistrationArea />
                 <EventArea event_name = {this.props.events.event_name}
                         event_img = {this.props.events.event_img}
@@ -55,7 +53,8 @@ const mapStateToProps = state => {
     return {
         events: state.homepage.events,
         departments: state.homepage.departments,
-        courses: state.homepage.courses
+        courses: state.homepage.courses,
+        facts: state.homepage.facts
     }
 }
 

@@ -21,3 +21,10 @@ export const updateEvents = (eventsInfo) => {
         newEventsInfo: eventsInfo   
     }
 }
+
+export const updateFacts = (factsInfo) => {
+    return {
+        type: actionTypes.HOMEPAGE_UPDATE_FACTS_INFO,
+        newFactsInfo: factsInfo
+    }
+}
