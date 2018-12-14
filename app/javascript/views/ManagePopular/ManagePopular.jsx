@@ -120,18 +120,12 @@ class ManagePopular extends Component {
 
 
     componentDidMount() {
-        // $(this.refs.main).DataTable({
-        //     dom: '<"data-table-wrapper"t>',
-        //     data: this.props.names,
-        //     columns,
-        //     ordering: false
-        // });
         $("#datatables").DataTable({
             "pagingType": "full_numbers",
             "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
             responsive: true,
-            language: {
-                search: "_INPUT_",
+            search: {
+                search: "",
                 searchPlaceholder: "Search records",
             }
         });
@@ -155,6 +149,17 @@ class ManagePopular extends Component {
         //Like record
         table.on('click', '.like', function () {
             alert('You clicked on Like button');
+        });
+
+        table.columns().every( function () {
+          var that = this.search;
+          $( 'input', this.footer() ).on( 'keyup change', function () {
+              if ( that.search() !== this.value ) {
+                  that
+                      .search( this.value )
+                      .draw();
+              }
+          } );
         });
     }
     componentWillUnmount() {
