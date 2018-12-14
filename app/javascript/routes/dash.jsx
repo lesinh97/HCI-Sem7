@@ -21,6 +21,7 @@ import Calendar from 'views/Calendar/Calendar.jsx';
 import UserPage from 'views/Pages/UserPage.jsx';
 import Users from 'views/Users/Users.jsx'
 import ManageClass from 'views/ManageClass/ManageClass.jsx';
+import ManagePopular from 'views/ManagePopular/ManagePopular.jsx';
 
 import pagesRoutes from './pages.jsx';
 
