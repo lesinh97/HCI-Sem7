@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
+
 import {
   Grid, Row, Col,
   Table,
@@ -15,13 +17,14 @@ import Button from 'elements/CustomButton/CustomButton.jsx';
 
 import { RegisterPage } from 'views/Pages/RegisterPage.jsx';
 import callApi from '../../reduxStore/apiCaller';
+import { connect } from 'react-redux';
+import * as actions from '../../reduxStore/actions/actionsIndex';
 
 class Users extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showAddModal: false,
-      userList: [],
       currentID: null
     };
   }
@@ -37,16 +40,9 @@ class Users extends Component {
      });
   }
 
-  componentDidMount() {
-    callApi('users', 'GET', null).then(res => {
-      this.setState({ userList: res.data });
-    })
-  }
   onDelete = (id) => {
     callApi('users/' + id, 'DELETE', null).then(res => {
-      callApi('users', 'GET', null).then(res => {
-        this.setState({ userList: res.data });
-      })
+      this.props.fetchUsers();
     })
   }
 
@@ -109,7 +105,7 @@ class Users extends Component {
     );
 
     let userModal = null;
-    if(this.state.currentID) userModal = this.renderUserModal(this.state.userList[this.state.currentID]);
+    if(this.state.currentID) userModal = this.renderUserModal(this.props.userList[this.state.currentID]);
 
     return (
       <div className="main-content">
@@ -134,7 +130,7 @@ class Users extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {this.state.userList.map((item, index) =>
+                      {this.props.userList.map((item, index) =>
                         <tr key={index}>
                           <td className="text-center">{item.id}</td>
                           <td className="text-center">{item.name}</td>
@@ -169,4 +165,16 @@ class Users extends Component {
   }
 }
 
-export default Users;
+const mapStateToProps = state => {
+  return {
+    userList: state.usersList.userList,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchUsers: () => dispatch(actions.fetchUserFromDB())
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Users);

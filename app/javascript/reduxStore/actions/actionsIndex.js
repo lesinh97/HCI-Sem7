@@ -14,3 +14,8 @@ export {
 export {
     updateCoursesClass
 } from './courseClass';
+
+export {
+  updateUserList,
+  fetchUserFromDB
+} from './userList';
