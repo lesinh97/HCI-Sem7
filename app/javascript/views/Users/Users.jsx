@@ -22,33 +22,19 @@ class Users extends Component {
     this.state = {
       showAddModal: false,
       userList: [],
-      userFormData: {
-        userName: "",
-        userRole: "",
-        userEmail: "",
-        userPhone: "",
-        userJoinDay: "",
-      },
+      currentID: null
     };
   }
 
   handleClose = () => {
-    this.setState({ showAddModal: false });
+    this.setState({ showAddModal: false, currentID: null });
   }
 
   handleShow = (id) => {
-    callApi('users/' + id, 'GET', null).then(res => {
-      this.setState({
-        userFormData: {
-          userName: res.data.name,
-          userRole: res.data.role,
-          userEmail: res.data.email,
-          userPhone: res.data.phone,
-          userJoinDay: res.data.created_at
-        }
-      })
-    })
-    this.setState({ showAddModal: true });
+    this.setState({ 
+      showAddModal: true,
+      currentID: id
+     });
   }
 
   componentDidMount() {
@@ -63,6 +49,57 @@ class Users extends Component {
       })
     })
   }
+
+  renderUserModal = (user) => {
+    return (
+      <Modal show={this.state.showAddModal} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Thông tin tài khoản</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Card
+              title={user.name}
+              content={
+                <form>
+                  <FormGroup>
+                    <ControlLabel>
+                      Email
+                            </ControlLabel>
+                    <FormControl
+                      value={user.email}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>
+                      Số điện thoại
+                            </ControlLabel>
+                    <FormControl
+                      value={user.phone}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>
+                      Vị trí
+                            </ControlLabel>
+                    <FormControl
+                      value={user.role}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>
+                      Ngày tham gia
+                            </ControlLabel>
+                    <FormControl
+                      value={user.created_at}
+                    />
+                  </FormGroup>
+                </form>
+              }
+            />
+          </Modal.Body>
+        </Modal>
+    )
+  }
   render() {
     const view = (
       <Tooltip id="view">View Profile</Tooltip>
@@ -70,6 +107,10 @@ class Users extends Component {
     const remove = (
       <Tooltip id="remove">Remove</Tooltip>
     );
+
+    let userModal = null;
+    if(this.state.currentID) userModal = this.renderUserModal(this.state.userList[this.state.currentID]);
+
     return (
       <div className="main-content">
         <Grid fluid>
@@ -122,52 +163,7 @@ class Users extends Component {
           </Row>
         </Grid>
 
-        <Modal show={this.state.showAddModal} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Thông tin tài khoản</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Card
-              title={this.state.userFormData.userName}
-              content={
-                <form>
-                  <FormGroup>
-                    <ControlLabel>
-                      Email
-                            </ControlLabel>
-                    <FormControl
-                      value={this.state.userFormData.userEmail}
-                    />
-                  </FormGroup>
-                  <FormGroup>
-                    <ControlLabel>
-                      Số điện thoại
-                            </ControlLabel>
-                    <FormControl
-                      value={this.state.userFormData.userPhone}
-                    />
-                  </FormGroup>
-                  <FormGroup>
-                    <ControlLabel>
-                      Vị trí
-                            </ControlLabel>
-                    <FormControl
-                      value={this.state.userFormData.userRole}
-                    />
-                  </FormGroup>
-                  <FormGroup>
-                    <ControlLabel>
-                      Ngày tham gia
-                            </ControlLabel>
-                    <FormControl
-                      value={this.state.userFormData.userJoinDay}
-                    />
-                  </FormGroup>
-                </form>
-              }
-            />
-          </Modal.Body>
-        </Modal>
+        {userModal}
       </div>
     );
   }
