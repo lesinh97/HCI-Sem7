@@ -11,18 +11,30 @@ import appRoutes from 'routes/app.jsx';
 
 import { connect } from 'react-redux';
 import * as actions from '../../reduxStore/actions/actionsIndex.js';
-import Pages from 'containers/Pages/Pages.jsx';
-import Dash from 'containers/Dash/Dash.jsx';
-import Homepage from '../../components/Homepage/Homepage';
+// import Pages from 'containers/Pages/Pages.jsx';
+
+import asyncComponent from '../HOC/asyncComponent';
+
+const AsyncPages = asyncComponent(() => {
+    return import('containers/Pages/Pages.jsx');
+})
+
+const AsyncHomePage = asyncComponent(() => {
+    return import('../../components/Homepage/Homepage');
+})
+
+const AsyncDash = asyncComponent(() => {
+    return import('containers/Dash/Dash.jsx');
+})
 
 import { isAllowed } from '../../reduxStore/utility';
 class App extends Component{
     constructor(props) {
-        super(props);
+      super(props);
     }
 
     componentDidMount() {
-        this.props.checkSignIn();
+      this.props.checkSignIn();
     }
 
     switchRoutes = () => {
@@ -30,21 +42,21 @@ class App extends Component{
         console.log(this.props.location.pathname)
         let route = (
             <Switch>
-                <Route path="/homepage" component={Homepage} />
-                <Route path="/pages/login-page" exact component={Pages} />
-                <Route path="/pages/register-page" exact component={Pages} />
-                <Route path="/pages/lock-screen-page" exact component={Pages} />
+                <Route path="/homepage" component={AsyncHomePage} />
+                <Route path="/pages/login-page" exact component={AsyncPages} />
+                <Route path="/pages/register-page" exact component={AsyncPages} />
 
-                {/* <Redirect from="/" to="/homepage" /> */}
+                <Redirect exact from="/" to="/homepage" />
             </Switch>
         )
         if(isLogin) {
             return (
                 <Switch>
-                    <Route path="/homepage" component={Homepage} />
-                    {isAllowed(this.props.currentUser, "admin") ? <Route path="/admin" component={Dash} /> : null}
+                    <Route path="/homepage" component={AsyncHomePage} />
+                    <Route path="/admin" component={AsyncDash} />
+                    {/* {isAllowed(this.props.currentUser, "admin") ? <Route path="/admin" component={AsyncDash} /> : null} */}
                     
-                    <Redirect from="/" to="/homepage" />
+                    <Redirect from="/" to="/admin" />
                 </Switch>
             )
         }

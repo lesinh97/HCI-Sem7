@@ -13,6 +13,7 @@ export const authSuccess = (token, userId, userData) => {
         idToken: token,
         userId: userId,
         userData: userData,
+        error: false
     };
 };
 
@@ -24,10 +25,10 @@ export const authFail = (error) => {
 };
 
 export const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('expirationDate');
-    localStorage.removeItem('userId');   
-    localStorage.removeItem('currentUser');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('expirationDate');
+    sessionStorage.removeItem('userId');   
+    sessionStorage.removeItem('currentUser');
     return {
         type: actionTypes.AUTH_LOGOUT
     }
@@ -44,34 +45,25 @@ export const checkAuthTimeout = (expirationTime) => {
 export const auth = (email, password) => {
     return dispatch => {
         dispatch(authStart());
-        // const authData = {
-        //     email: email,
-        //     password: password,
-        //     returnSecureToken: true
-        // };
+        
         const authData = {
             login_email: email,
             login_password: password
         };
         //url tào lao
-        let url = "https://5c0f8c30fc4df20013083a63.mockapi.io/foobaripa/user";
-        // url = "http://localhost:3001/sessions/"
-        console.log(authData);
+        // let url = "https://5c0f8c30fc4df20013083a63.mockapi.io/foobaripa/user";
+        let url = "http://localhost:3001/sessions/"
         axios.post(url, authData)
         .then(response => {
             console.log(response.data);
-            const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
-            localStorage.setItem('token', response.data.idToken);
-            // localStorage.setItem('expirationDate', expirationDate);
-            localStorage.setItem('userId', response.data.localId);
-            localStorage.setItem('currentUser', JSON.stringify(response.data.userData));
-            dispatch(authSuccess(response.data.idToken, response.data.localId, response.data.userData));
-            
-            // dispatch(checkAuthTimeout(response.data.expiresIn));
+            console.log("foobar");
+            sessionStorage.setItem('token', response.data.remember_digest);
+            sessionStorage.setItem('userId', response.data.id);
+            sessionStorage.setItem('currentUser', JSON.stringify(response.data));
+            dispatch(authSuccess(response.data.remember_digest, response.data.id, response.data));
         })
         .catch(err => {
-            console.log(err);
-            dispatch(authFail(err.response.data.error));
+          dispatch(authFail(true));
         })
     //    dispatch(checkAuthTimeout(response.data.expiresIn));
     };
@@ -86,16 +78,17 @@ export const setAuthRedirectPath = (path) => {
 
 export const authCheckState = () => {
     return dispatch => {
-        const token = localStorage.getItem('token');
+        const token = sessionStorage.getItem('token');
+        console.log
         if(!token) {
             dispatch(logout());
         } else {
-            // const expirationDate = new Date(localStorage.getItem('expirationDate'));
+            // const expirationDate = new Date(sessionStorage.getItem('expirationDate'));
             // if (expirationDate <= new Date()) {
                 // dispatch(logout());
             // } else {
-                const userId = localStorage.getItem('userId');
-                const userData = JSON.parse(localStorage.getItem('currentUser'));
+                const userId = sessionStorage.getItem('userId');
+                const userData = JSON.parse(sessionStorage.getItem('currentUser'));
                 dispatch(authSuccess(token, userId, userData));
                 // dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime())/1000));
             // }
