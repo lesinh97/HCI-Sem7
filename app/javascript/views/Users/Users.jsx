@@ -3,7 +3,7 @@ import {
   Grid, Row, Col,
   Table,
   OverlayTrigger,
-  Tooltip
+  Tooltip, Modal, FormGroup, FormControl, Media,Checkbox,ControlLabel
 } from 'react-bootstrap';
 import axios from 'axios';
 // react component that creates a switch button that changes from on to off mode
@@ -13,31 +13,65 @@ import Card from 'components/Card/Card.jsx';
 
 import Button from 'elements/CustomButton/CustomButton.jsx';
 
+import { RegisterPage } from 'views/Pages/RegisterPage.jsx';
+
 class Users extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_list: [],
+      showAddModal: false,
+      userList: [],
+      userFormData: {
+        userName: "",
+        userRole:"",
+        userEmail:"",
+        userPhone:"",
+        userJoinDay:"",
+      },
     };
   }
+
+  handleClose = () => {
+    this.setState({ showAddModal: false });
+  }
+
+  handleShow = (id) => {
+    axios.get('http://localhost:3001/users/' + id).then(res => {
+      this.setState({
+        userFormData: {
+          userName: res.data.name,
+          userRole:res.data.role,
+          userEmail:res.data.email,
+          userPhone:res.data.phone,
+          userJoinDay: res.data.created_at
+        }
+    })
+    console.log(this.state.userFormData)
+    }).catch(function (err) {
+      console.log(err)
+    });
+    this.setState({ showAddModal: true });
+  }
+
   componentDidMount() {
     axios.get('http://localhost:3001/users/').then(res => {
-      this.setState({ user_list: res.data });
+      this.setState({ userList: res.data });
+    }).catch(function (err) {
+      console.log(err)
     });
   }
   onDelete = (id) => {
     axios.delete('http://localhost:3001/users/' + id).then(res => {
       axios.get('http://localhost:3001/users/').then(res => {
-        this.setState({ user_list: res.data });
-      })
+        this.setState({ userList: res.data });
+      }).catch(function (err) {
+        console.log(err)
+      });
     })
   }
   render() {
     const view = (
       <Tooltip id="view">View Profile</Tooltip>
-    );
-    const edit = (
-      <Tooltip id="edit">Edit Profile</Tooltip>
     );
     const remove = (
       <Tooltip id="remove">Remove</Tooltip>
@@ -46,7 +80,8 @@ class Users extends Component {
       <div className="main-content">
         <Grid fluid>
           <Row>
-            <Col md={13}>
+            <Col md={1} />
+            <Col md={11}>
               <Card
                 title="Quản lý người dùng"
                 category="Trung tâm ngoại ngữ Lê Xinh"
@@ -64,7 +99,7 @@ class Users extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {this.state.user_list.map((item, index) =>
+                      {this.state.userList.map((item, index) =>
                         <tr key={index}>
                           <td className="text-center">{item.id}</td>
                           <td className="text-center">{item.name}</td>
@@ -73,13 +108,8 @@ class Users extends Component {
                           <td className="text-center">{item.phone}</td>
                           <td className="td-actions text-right">
                             <OverlayTrigger placement="top" overlay={view}>
-                              <Button simple bsStyle="info" bsSize="xs">
+                              <Button simple bsStyle="info" bsSize="xs" onClick={() => this.handleShow(item.id)}>
                                 <i className="fa fa-user"></i>
-                              </Button>
-                            </OverlayTrigger>
-                            <OverlayTrigger placement="top" overlay={edit}>
-                              <Button simple bsStyle="success" bsSize="xs">
-                                <i className="fa fa-edit"></i>
                               </Button>
                             </OverlayTrigger>
                             <OverlayTrigger placement="top" overlay={remove}>
@@ -97,6 +127,53 @@ class Users extends Component {
             </Col>
           </Row>
         </Grid>
+
+        <Modal show={this.state.showAddModal} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Thông tin tài khoản</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Card
+                title={this.state.userFormData.userName}
+                content={
+                    <form>
+                        <FormGroup>
+                            <ControlLabel>
+                                Email
+                            </ControlLabel>
+                            <FormControl
+                                value={this.state.userFormData.userEmail}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>
+                            Số điện thoại
+                            </ControlLabel>
+                            <FormControl
+                                value={this.state.userFormData.userPhone}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>
+                            Vị trí
+                            </ControlLabel>
+                            <FormControl
+                                value={this.state.userFormData.userRole}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>
+                            Ngày tham gia
+                            </ControlLabel>
+                            <FormControl
+                                value={this.state.userFormData.userJoinDay}
+                            />
+                        </FormGroup>
+                    </form>
+                }
+            />
+          </Modal.Body>
+        </Modal>
       </div>
     );
   }
