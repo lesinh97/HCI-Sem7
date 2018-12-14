@@ -57,9 +57,9 @@ class Dashboard extends Component{
                     <Row>
                         <Col lg={3} sm={6}>
                             <StatsCard
-                                bigIcon={<i className="pe-7s-server text-warning"></i>}
-                                statsText="Capacity"
-                                statsValue="105GB"
+                                bigIcon={<i className="pe-7s-study"></i>}
+                                statsText="Join"
+                                statsValue="96 days"
                                 statsIcon={<i className="fa fa-refresh"></i>}
                                 statsIconText="Updated now"
                             />
@@ -67,7 +67,7 @@ class Dashboard extends Component{
                         <Col lg={3} sm={6}>
                             <StatsCard
                                 bigIcon={<i className="pe-7s-wallet text-success"></i>}
-                                statsText="Revenue"
+                                statsText="Fee"
                                 statsValue="$1,345"
                                 statsIcon={<i className="fa fa-calendar-o"></i>}
                                 statsIconText="Last day"
@@ -76,27 +76,27 @@ class Dashboard extends Component{
                         <Col lg={3} sm={6}>
                             <StatsCard
                                 bigIcon={<i className="pe-7s-graph1 text-danger"></i>}
-                                statsText="Errors"
-                                statsValue="23"
+                                statsText="Level"
+                                statsValue="6"
                                 statsIcon={<i className="fa fa-clock-o"></i>}
                                 statsIconText="In the last hour"
                             />
                         </Col>
                         <Col lg={3} sm={6}>
                             <StatsCard
-                                bigIcon={<i className="fa fa-twitter text-info"></i>}
-                                statsText="Followers"
-                                statsValue="+45"
+                                bigIcon={<i className="pe-7s-note2"></i>}
+                                statsText="Test"
+                                statsValue="15"
                                 statsIcon={<i className="fa fa-refresh"></i>}
-                                statsIconText="Updated now"
+                                statsIconText="2 days ago"
                             />
                         </Col>
                     </Row>
                     <Row>
                         <Col md={12}>
                             <Card
-                                title="Global Sales by Top Locations"
-                                category="All products that were shipped"
+                                title="Kết quả các bài test gần nhất"
+                                category="Hãy cải thiện mỗi ngày nhé !"
                                 content={
                                     <Row>
                                         <Col md={5}>
