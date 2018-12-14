@@ -11,6 +11,13 @@ import FooterArea from './Footer/FooterArea'
 
 import { connect } from 'react-redux';
 
+// import '../../assets/css/homepage/css/bootstrap';
+// import '../../assets/css/homepage/css/font-awesome.min';
+// import '../../assets/css/homepage/css/style.css';
+// import '../../assets/css/homepage/lightbox/simpleLightbox.css';
+// import '../../assets/css/homepage/nice-select/css/nice-select.css';
+// import '../../assets/css/homepage/owl-carousel/owl.carousel.min.css';
+
 class Homepage extends Component {
     constructor(props) {
         super(props);
