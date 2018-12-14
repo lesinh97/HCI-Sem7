@@ -35,6 +35,7 @@ class App extends Component{
 
     componentDidMount() {
       this.props.checkSignIn();
+      this.props.fetchUsers();
     }
 
     switchRoutes = () => {
@@ -78,6 +79,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         checkSignIn: () => dispatch(actions.authCheckState()),
+        fetchUsers: () => dispatch(actions.fetchUserFromDB())
     }
 }
 
